@@ -26,6 +26,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     agecheck: 'This is an <strong>adult-only</strong> website',
     consent: 'By continuing to browse this website, you aggree to our <a href="#">cookie policy</a> and <a href="#">terms and conditions</a>.',
     consentButton: 'I am older than 18',
+    agecheckFooter: '<a href="#">More information</a>',
 
     questionIntro: 'But more important...',
     question: 'Is #G# 18 years or older?',
@@ -46,6 +47,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     info: `<p>We do our best to avoid working with underaged sex workers, but we can never be 100% succesful. In the future, when in doubt, but still want to meet? Try asking for an ID for example. Only then will you be sure to not do anything illegal.</p>
     <p>And if it turns out the sex worker is indeed underaged? Report this anonymously to Child Focus, by calling tollfree to <a href="tel:116 000">116 000</a> or by using <a href="#">this online form</a>. And help us in the combat against sexual exploitation of children.</p>`,
+
+    close: 'Go to the website',
 
     ...(BWAV_SETTINGS.content || {})
   };
@@ -71,6 +74,17 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     eventPrefix: 'bwav:',
     
     version: 'v0.1',
+
+    logos: [
+      {
+        url: 'https://google.com',
+        image: 'images/logo-eu.png',
+      },
+      {
+        url: 'https://childfocus.be',
+        image: 'images/logo-child-focus.png',
+      }
+    ],
 
     ...(BWAV_SETTINGS || {}),
 
@@ -99,6 +113,12 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     return SETTINGS.models[Math.floor(Math.random() * SETTINGS.models.length)];
   };
 
+  /**
+   * Replace #G# and #GF# with the correct genderized words
+   * @param {string} sentence 
+   * @param {string} gender 
+   * @returns 
+   */
   function genderizeSentence(sentence, gender) {
     const g = gender === 'f' ? SETTINGS.content.genderF : SETTINGS.content.genderM;
     const gFull = gender === 'f' ? SETTINGS.content.genderFFull : SETTINGS.content.genderMFull;
@@ -106,38 +126,65 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     return sentence.replace('#G#', g).replace('#GF#', gFull);
   }
 
+  /**
+   * Check answer and show correct information
+   * @param {boolean} answer 
+   */
   function answerQuestion(answer) {
     if (SETTINGS.debug) { console.log(`${MODULE_NAME} answer question`, answer); }
-    triggerEvent(`${SETTINGS.eventPrefix}on_answer`, { answer, model: STORE.model });
-
+    
     // validate
     const correct = STORE.model.underaged !== answer;
+
+    triggerEvent(`${SETTINGS.eventPrefix}on_answer`, { answer, model: STORE.model, correct });
 
     // setup html
     const template = `
       <div class="bwav__step">
-        <div class="bwav__avatar bwav__avatar--scaledown${ correct ? '' : ' bwav__avatar--blur' }">
+        <div class="bwav__avatar bwav__avatar--scaledown${ correct ? ' bwav__avatar--blur' : '' }">
           <div class="bwav__avatar__image" style="background-image: url(${STORE.model.avatar});"></div>
         </div>
 
-        <div class="bwav__content">
-          ${ correct ? `
+        ${ correct ? `
           <p class="bwav__title">${ genderizeSentence(SETTINGS.content.correct, STORE.model.gender) }</p>
-          <p class="bwav__intro">${ genderizeSentence(SETTINGS.content.correctContent, STORE.model.gender) }</p>
         ` : `
             <p class="bwav__title">${ genderizeSentence(SETTINGS.content.incorrect, STORE.model.gender) }</p>
+          ` }
+
+        <div class="bwav__content">
+          ${ correct ? `
+          <p class="bwav__intro">${ genderizeSentence(SETTINGS.content.correctContent, STORE.model.gender) }</p>
+        ` : `
             <p class="bwav__intro">${ genderizeSentence(SETTINGS.content.incorrectContent, STORE.model.gender) }</p>
           ` }
           ${ SETTINGS.content.info }
+
+          <div class="bwav__actions">
+            <button class="bwav__button" onclick={BWAV.close()}><span>${SETTINGS.content.close}</span></button>
+          </div>
         </div>
 
         <div class="bwav__footer">
-
+          <div class="bwav__footer__logos">
+            ${ SETTINGS.logos.map((logo) => (`
+            <div class="bwav__footer__logo">
+              <a href="${ logo.url }">
+                <img src="${ logo.image }" />
+              </a>
+            </div>
+            `)).join('') }
+          </div>
         </div>
       </div>
     `;
 
     STORE.wrapper.innerHTML = template;
+  }
+
+  function close() {
+    if (SETTINGS.debug) { console.log(`${MODULE_NAME} close`); }
+    STORE.target.classList.remove(CLASSES.show);
+    triggerEvent(`${SETTINGS.eventPrefix}on_close`, { model: STORE.model });
   }
 
   /**
@@ -171,6 +218,9 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     STORE.target.classList.add(CLASSES.show);
   }
 
+  /**
+   * Render age check
+   */
   function ageCheck() {
     const template = `
     <div class="bwav__agecheck">
@@ -186,7 +236,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
       </div>
 
       <div class="bwav__footer">
-        <a href="#">Meer informatie</a>
+        ${ SETTINGS.content.agecheckFooter }
       </div>
     </div>
     `;
@@ -322,5 +372,6 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   return {
     start,
     answer: answerQuestion,
+    close,
   };
 }(window, window.BWAV_SETTINGS || {}));
