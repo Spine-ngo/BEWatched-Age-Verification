@@ -144,7 +144,7 @@
   width: 100%;
 }
 .bwav__step .bwav__footer::before {
-  background: linear-gradient(to bottom, transparent, var(--bwav-color--background));
+  background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bwav-color--background));
   content: '';
   bottom: 100%;
   height: 50px;
