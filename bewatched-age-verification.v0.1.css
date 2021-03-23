@@ -1,0 +1,110 @@
+:root {
+  --bwav-color--overlay: rgba(0,0,0,.83);
+  --bwav-color--background: #ffffff;
+  --bwav-color--text: #747474;
+  --bwav-border--radius: 10px;
+  --bwav-width--wrapper: 300px;
+  --bwav-width--avatar: 55%;
+}
+
+.bwav--blur > *:not(.bwav__overlay) {
+  filter: blur(10px);
+}
+
+.bwav--shown {
+  overflow: hidden;
+}
+.bwav--shown .bwav__overlay {
+  display: flex;
+}
+
+.bwav__overlay {
+  align-items: center;
+  background: var(--bwav-color--overlay);
+  box-sizing: border-box;
+  display: none;
+  flex-flow: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  padding: 40px;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.bwav__wrapper {
+  background: var(--bwav-color--background);
+  border-radius: var(--bwav-border--radius);
+  box-sizing: border-box;
+  color: var(--bwav-color--text);
+  display: flex;
+  flex-flow: column;
+  max-height: 70vh;
+  max-width: var(--bwav-width--wrapper);
+  text-align: center;
+  width: 100%;
+}
+
+.bwav__wrapper a {
+  color: var(--bwav-color--primary);
+  text-decoration: none;
+}
+.bwav__wrapper a:hover { 
+  filter: brightness(85%);
+  text-decoration: underline;
+}
+
+.bwav__wrapper p {
+  margin-bottom: 22px;
+  margin-top: 0;
+}
+
+.bwav__avatar {
+  box-shadow: 0 6px 16px 3px var(--bwav-color--primary-shadow) ;
+  border: 10px solid var(--bwav-color--background);
+  border-radius: 100%;
+  margin: -35px auto 5px;
+  overflow: hidden;
+  width: var(--bwav-width--avatar);
+}
+
+.bwav__avatar__image {
+  background-size: cover;
+  background-position: center center;
+  height: 0;
+  padding-top: 100%;
+  width: 100%;
+}
+
+.bwav__button {
+  appearance: none;
+  background: var(--bwav-color--primary);
+  border: 1px solid var(--bwav-color--primary);
+  border-radius: var(--bwav-border--radius);
+  color: var(--bwav-color--primary-text);
+  cursor: pointer;
+  padding: 14px 20px 13px;
+}
+.bwav__button:hover {
+  filter: brightness(85%);
+}
+
+.bwav__content {
+  padding: 25px 20px;
+  overflow: auto;
+}
+
+.bwav__question {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.bwav__footer {
+  padding: 25px 20px;
+}
+
+.bwav__agecheck__consent {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Child Focus: Age check</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+
+      font: 16px/normal sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>This is just demo stuff</h1>
+
+  <p>Lorem, ipsum dolor sit <a href="#" onclick="BWAV.start()">trigger</a> amet consectetur adipisicing elit. Ducimus dolore maxime quae! Quos vero excepturi debitis neque quaerat natus, est, laborum quas soluta, itaque fugiat corrupti corporis saepe labore. Ipsum corporis ducimus atque expedita, soluta quisquam sapiente aperiam, delectus ullam, odit sed sequi eaque vitae adipisci esse ab. Ipsam tenetur doloribus enim nostrum laborum, rerum debitis, repellendus quibusdam alias suscipit ea! Animi voluptas minus hic aspernatur dignissimos. Tempore culpa temporibus vitae, et harum cum aperiam iure corporis totam nesciunt impedit officia voluptas doloribus provident! Eius fugiat quo possimus nisi! Vel amet iure unde corrupti beatae ut omnis odio minima! Voluptates.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore maxime quae! Quos vero excepturi debitis neque quaerat natus, est, laborum quas soluta, itaque fugiat corrupti corporis saepe labore. Ipsum corporis ducimus atque expedita, soluta quisquam sapiente aperiam, delectus ullam, odit sed sequi eaque vitae adipisci esse ab. Ipsam tenetur doloribus enim nostrum laborum, rerum debitis, repellendus quibusdam alias suscipit ea! Animi voluptas minus hic aspernatur dignissimos. Tempore culpa temporibus vitae, et harum cum aperiam iure corporis totam nesciunt impedit officia voluptas doloribus provident! Eius fugiat quo possimus nisi! Vel amet iure unde corrupti beatae ut omnis odio minima! Voluptates.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore maxime quae! Quos vero excepturi debitis neque quaerat natus, est, laborum quas soluta, itaque fugiat corrupti corporis saepe labore. Ipsum corporis ducimus atque expedita, soluta quisquam sapiente aperiam, delectus ullam, odit sed sequi eaque vitae adipisci esse ab. Ipsam tenetur doloribus enim nostrum laborum, rerum debitis, repellendus quibusdam alias suscipit ea! Animi voluptas minus hic aspernatur dignissimos. Tempore culpa temporibus vitae, et harum cum aperiam iure corporis totam nesciunt impedit officia voluptas doloribus provident! Eius fugiat quo possimus nisi! Vel amet iure unde corrupti beatae ut omnis odio minima! Voluptates.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore maxime quae! Quos vero excepturi debitis neque quaerat natus, est, laborum quas soluta, itaque fugiat corrupti corporis saepe labore. Ipsum corporis ducimus atque expedita, soluta quisquam sapiente aperiam, delectus ullam, odit sed sequi eaque vitae adipisci esse ab. Ipsam tenetur doloribus enim nostrum laborum, rerum debitis, repellendus quibusdam alias suscipit ea! Animi voluptas minus hic aspernatur dignissimos. Tempore culpa temporibus vitae, et harum cum aperiam iure corporis totam nesciunt impedit officia voluptas doloribus provident! Eius fugiat quo possimus nisi! Vel amet iure unde corrupti beatae ut omnis odio minima! Voluptates.</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore maxime quae! Quos vero excepturi debitis neque quaerat natus, est, laborum quas soluta, itaque fugiat corrupti corporis saepe labore. Ipsum corporis ducimus atque expedita, soluta quisquam sapiente aperiam, delectus ullam, odit sed sequi eaque vitae adipisci esse ab. Ipsam tenetur doloribus enim nostrum laborum, rerum debitis, repellendus quibusdam alias suscipit ea! Animi voluptas minus hic aspernatur dignissimos. Tempore culpa temporibus vitae, et harum cum aperiam iure corporis totam nesciunt impedit officia voluptas doloribus provident! Eius fugiat quo possimus nisi! Vel amet iure unde corrupti beatae ut omnis odio minima! Voluptates.</p>
+    
+  
+  <!-- <div class="bwav__overlay">
+    <div class="bwav__wrapper">
+      <div class="bwav__agecheck">
+        <div class="bwav__avatar">
+          <div class="bwav__avatar__image" style="background-image: url(logo.png);"></div>
+        </div>
+
+        <div class="bwav__content">
+          <p>Redlights is een <strong>18+</strong> website</p>
+          <p>Door verder te surfen gaat u akkoord met het gebruik van <a href="#">cookies</a> en de <a href="#">gebruiksvoorwaarden</a></p>
+
+          <button class="bwav__button" onclick="BWAV.start()"><span>Ik ben 18 jaar of ouder</span></button>
+        </div>
+
+        <div class="bwav__footer">
+          <a href="#">Meer informatie</a>
+        </div>
+      </div>
+
+      <div class="bwav__step">
+        <div class="bwav__avatar bwav__avatar--scaleup">
+          <div class="bwav__avatar__image" style="background-image: url(images/model-1.jpg);"></div>
+        </div>
+
+        <div class="bwav__content">
+          <p>Maar nog belangrijker...</p>
+          <p class="bwav__question">Is zij 18 jaar of ouder?</p>
+
+          <div class="bwav__actions">
+            <button class="bwav__button" data-answer="yes"><span>Ja</span></button>
+            <button class="bwav__button" data-answer="no"><span>Nee</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bwav__step">
+        <div class="bwav__avatar bwav__avatar--scaledown bwav__avatar--blur">
+          <div class="bwav__avatar__image" style="background-image: url(images/model-1.jpg);"></div>
+        </div>
+
+        <div class="bwav__content">
+          <p class="bwav__title">Helaas, zij is <strong>minderjarig</strong></p>
+          <p class="bwav__intro">Zoals je ziet is het niet altijd even makkelijk in te schatten of iemand meerderjarig is. Want op het moment van deze foto was het meisje actief als minderjarige sekswerker.</p>
+          <p>Bij Redlights doen we er alles aan om minderjarige sekswerkerks te weren, maar we kunnen dit nooit 100% voorkomen. Twijfel je daarom in de toekomst aan de opgegeven leeftijd, maar spreek je toch af? Probeer dan te achterhalen of ze 18 jaar is door bijvoorbeeld naar haar identiteitskaart te vragen. Alleen zo ben zeker dat je niets strafbaars doet.</p>
+          <p>En (b)lijkt de sekswerker minderjarig? Meld dit dan anoniem aan Child Focus op het gratis nummer 116 000 of online via dit formulier. En help zo mee in de strijd tegen seksuele uitbuiting van kinderen.</p>
+        </div>
+
+        <div class="bwav__footer">
+
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <script>
+    // OPTIONAL AGE CHECK GLOBAL SETTINGS OBJECT
+    window.BWAV_SETTINGS = {
+      debug: true,        // enable loggin in script for debugging
+
+      blur: true,
+      accentColor: '#d24d3d',
+      shadowColor: 'rgba(210,77,61,.17)',
+
+      ageCheck: false,
+
+      logo: 'https://s.rstatic.be/rl/images/icon-nl-180x180.png',
+
+      models: [
+        {
+          avatar: 'images/model-1.jpg',
+          underaged: false,
+          gender: 'f',
+        }
+      ],
+
+      content: {
+        agecheck: 'Redlights is een <strong>18+</strong> website',
+        consent: 'Door verder te surfen gaat u akkoord met het gebruik van <a href="#">cookies</a> en de <a href="#">gebruiksvoorwaarden</a>.',
+        consentButton: 'Ik ben 18 jaar of ouder',
+
+        questionIntro: 'Maar nog belangrijker...',
+        question: 'Is zij 18 jaar of ouder?',
+
+        yes: 'Ja',
+        no: 'Nee',
+
+        genderM: 'hij',
+        genderF: 'zij',
+
+        genderMFull: 'deze jongen',
+        genderFFull: 'dit meisje',
+
+        correct: 'Inderdaad, #G# is <strong>minderjarig</strong>',
+        correctContent: 'Maar geef toe dat je niet altijd even makkelijk kan inschatten of iemand minderjarig is. Op het moment van deze foto was #GF# actief als minderjarige sekswerker.',
+        
+        incorrect: 'Heelaas, #G# is <strong>minderjarig</strong>',
+        incorrectContent: 'Zoals je ziet is het niet altijd even makkelijk in te schatten of iemand meerderjarig is. Want op het moment van deze foto was #GF# actief als minderjarige sekswerker.',
+
+        info: `<p>Bij Redlights doen we er alles aan om minderjarige sekswerkerks te weren, maar we kunnen dit nooit 100% voorkomen. Twijfel je daarom in de toekomst aan de opgegeven leeftijd, maar spreek je toch af? Probeer dan te achterhalen of ze 18 jaar is door bijvoorbeeld naar haar identiteitskaart te vragen. Alleen zo ben zeker dat je niets strafbaars doet.</p>
+          <p>En (b)lijkt de sekswerker minderjarig? Meld dit dan anoniem aan Child Focus op het gratis nummer 116 000 of online via dit formulier. En help zo mee in de strijd tegen seksuele uitbuiting van kinderen.</p>`,
+      }
+    };
+  </script>
+  <script src="bewatched-age-verification.v0.1.js"></script>
+</body>
+</html>
