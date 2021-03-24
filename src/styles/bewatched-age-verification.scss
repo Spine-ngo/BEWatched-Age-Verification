@@ -7,7 +7,7 @@
   --bwav-width--avatar: 55%;
 }
 .bwav--blur > *:not(.bwav__overlay) {
-  filter: blur(10px);
+  animation: blur 1000ms forwards;
 }
 
 .bwav--shown {
