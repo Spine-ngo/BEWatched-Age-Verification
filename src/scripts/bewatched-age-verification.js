@@ -5,15 +5,16 @@ import Cookies from 'js-cookie';
 window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   "use strict";
 
-  const MODULE_NAME = 'BWAV';
-  const VERSION = `v${version}`;
+  const MODULE_NAME = 'BWAV';     // added as a prefix to console logs for easy filtering
+  const VERSION = `v${version}`;  // get version from package.json to load correct css file 
 
+  // mock MODELS array, can be overwrited in the global settings object (see index.html file)
   const MODELS = [
     {
       id: 1,
-      avatar: 'images/model-placeholder.png',
-      underaged: false,
-      gender: 'f',
+      avatar: 'images/model-placeholder.png', // model image
+      underaged: false,                       // under 18?
+      gender: 'f',                            // f = female, m = male
     },
     {
       id: 2,
@@ -29,6 +30,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     }
   ];
 
+  // All texts used in this plugin, can be overwritten by using the global settings object (see index.html file)
   const COPY = {
     agecheck: 'This is an <strong>adult-only</strong> website',
     consent: 'By continuing to browse this website, you aggree to our <a href="#">cookie policy</a> and <a href="#">terms and conditions</a>.',
@@ -60,43 +62,46 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     ...(BWAV_SETTINGS.content || {})
   };
 
+  // Logos used in the footer at the last step
+  const LOGOS = [
+    {
+      url: 'https://europa.eu/',
+      image: 'images/logo-eu.png',
+    },
+    {
+      url: 'https://childfocus.be',
+      image: 'images/logo-child-focus.png',
+    }
+  ];
+
   const SETTINGS = {
-    debug: false,
+    debug: false,                       // enable for logging
 
-    close: false,
+    close: false,                       // show a close button at the right-top corner of the overlay
 
-    accentColor: 'green',
-    accentTextColor: 'white',
-    shadowColor: 'rgba(0,128,0,.25)',
+    accentColor: 'green',               // the highlight color used for buttons, links, specific text
+    accentTextColor: 'white',           // the text color for buttons
+    shadowColor: 'rgba(0,128,0,.25)',   // the shadow color, used for example under the logo/avatar
 
-    logo: 'images/logo.png',
+    logo: 'images/logo.png',            // link to a specific logo, now a placeholder
 
-    ageCheck: true,
-    blur: false,
-    models: MODELS,
+    ageCheck: true,                     // show an age-check before the survey
+    blur: false,                        // blur the main website content when the overlay is shown
+    models: MODELS,                     // models array, see above
 
-    cdnPrefix: '',
+    cdnPrefix: '',                      // load your assets from a CDN
 
-    cookieAge: 30,
-    cookieName: 'bwav',
-    cookieShowMax: 0,
+    cookieAge: 30,                      // amount of days for the cookie lifetime
+    cookieName: 'bwav',                 // cookie name
+    cookieShowMax: 0,                   // the amount of times the survey can be shown, 0 = always
 
-    eventPrefix: 'bwav:',
+    eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
-    logos: [
-      {
-        url: 'https://google.com',
-        image: 'images/logo-eu.png',
-      },
-      {
-        url: 'https://childfocus.be',
-        image: 'images/logo-child-focus.png',
-      }
-    ],
+    logos: LOGOS,                       // array of logos, see above
 
     ...(BWAV_SETTINGS || {}),
 
-    content: COPY,
+    content: COPY,                      // copy object, see above
   };
 
   const SELECTORS = {
