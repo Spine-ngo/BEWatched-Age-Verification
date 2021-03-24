@@ -53,7 +53,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     incorrectContent: 'As you can see, it\'s not always easy to see if someone is of age. Because at the moment this picture was taken, #GF# was active as a sex worker.',
 
     info: `<p>We do our best to avoid working with underaged sex workers, but we can never be 100% succesful. In the future, when in doubt, but still want to meet? Try asking for an ID for example. Only then will you be sure to not do anything illegal.</p>
-    <p>And if it turns out the sex worker is indeed underaged? Report this anonymously to Child Focus, by calling tollfree to <a href="tel:116 000">116 000</a> or by using <a href="#">this online form</a>. And help us in the combat against sexual exploitation of children.</p>`,
+    <p>And if it turns out the sex worker is indeed underaged? Report this anonymously to Child Focus, by calling tollfree to <a href="tel:116 000">116 000</a> or by using <a href="https://childfocus.be/en/child-sexual-abuse-material-reporting-form" target="_blank">this online form</a>. And help us in the combat against sexual exploitation of children.</p>`,
 
     close: 'Go to the website',
 
