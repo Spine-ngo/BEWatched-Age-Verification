@@ -1,4 +1,5 @@
 import { version } from '../../package.json';
+import Cookies from 'js-cookie';
 
 // eslint-disable-next-line no-unused-vars
 window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
@@ -10,19 +11,19 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   const MODELS = [
     {
       id: 1,
-      avatar: 'images/model-1.jpg',
+      avatar: 'images/model-placeholder.png',
       underaged: false,
       gender: 'f',
     },
     {
       id: 2,
-      avatar: 'images/model-2.jpg',
+      avatar: 'images/model-placeholder.png',
       underaged: true,
       gender: 'm',
     },
     {
       id: 3,
-      avatar: 'images/model-3.jpg',
+      avatar: 'images/model-placeholder.png',
       underaged: false,
       gender: 'f',
     }
@@ -68,7 +69,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     accentTextColor: 'white',
     shadowColor: 'rgba(0,128,0,.25)',
 
-    logo: 'logo.png',
+    logo: 'images/logo.png',
 
     ageCheck: true,
     blur: false,
@@ -78,6 +79,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     cookieAge: 30,
     cookieName: 'bwav',
+    cookieShowMax: 0,
 
     eventPrefix: 'bwav:',
 
@@ -192,14 +194,24 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     STORE.target.classList.remove(CLASSES.show);
     STORE.target.classList.remove(CLASSES.blur);
     triggerEvent(`${SETTINGS.eventPrefix}on_close`, { model: STORE.model });
+
+    const cookie = parseInt(Cookies.get(SETTINGS.cookieName) || 0, 10);
+
+    if (cookie < SETTINGS.cookieShowMax && cookie >= 0) {
+      Cookies.set(SETTINGS.cookieName, cookie + 1, { expires: SETTINGS.cookieAge });
+    }
   }
 
   /**
    * Public function to start the survey
    */
   function start() {
-    if (SETTINGS.debug) { console.log(`${MODULE_NAME} start`, STORE.model); }
-    triggerEvent(`${SETTINGS.eventPrefix}on_start`, { model: STORE.model });
+    const cookie = Cookies.get(SETTINGS.cookieName);
+
+    if (SETTINGS.debug) { console.log(`${MODULE_NAME} start`, STORE.model, 'cookie value:', cookie); }
+    triggerEvent(`${SETTINGS.eventPrefix}on_start`, { model: STORE.model, cookie });
+
+    if (cookie && cookie >= SETTINGS.cookieShowMax) { close(); return; }
 
     // setup html
     const template = `
@@ -210,7 +222,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
       <div class="bwav__content">
         <p>${SETTINGS.content.questionIntro}</p>
-        <p class="bwav__question">${SETTINGS.content.question}</p>
+        <p class="bwav__question">${ genderizeSentence(SETTINGS.content.question, STORE.model.gender) }</p>
 
         <div class="bwav__actions">
           <button class="bwav__button" onclick={BWAV.answer(true)}><span>${SETTINGS.content.yes}</span></button>
@@ -233,6 +245,10 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
    * Render age check
    */
   function ageCheck() {
+    const cookie = Cookies.get(SETTINGS.cookieName);
+
+    if (cookie && cookie >= SETTINGS.cookieShowMax) { close(); return; }
+
     const template = `
     <div class="bwav__agecheck">
       <div class="bwav__avatar">
