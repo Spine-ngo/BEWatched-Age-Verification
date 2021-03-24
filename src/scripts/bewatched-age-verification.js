@@ -1,5 +1,11 @@
+import PACKAGE from '../../package.json';
+
+// eslint-disable-next-line no-unused-vars
 window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
+  "use strict";
+
   const MODULE_NAME = 'BWAV';
+  const VERSION = `v${PACKAGE.version}`;
 
   const MODELS = [
     {
@@ -72,8 +78,6 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     cookieName: 'bwav',
 
     eventPrefix: 'bwav:',
-    
-    version: 'v0.1',
 
     logos: [
       {
@@ -325,7 +329,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     try {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = `${SETTINGS.cdnPrefix}/bewatched-age-verification.${SETTINGS.version}.css`;
+      link.href = `${SETTINGS.cdnPrefix}/bewatched-age-verification.${VERSION}.css`;
 
       document.head.appendChild(link);
 

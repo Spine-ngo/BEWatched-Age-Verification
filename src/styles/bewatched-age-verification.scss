@@ -6,16 +6,16 @@
   --bwav-width--wrapper: 350px;
   --bwav-width--avatar: 55%;
 }
-
 .bwav--blur > *:not(.bwav__overlay) {
   filter: blur(10px);
 }
 
 .bwav--shown {
   overflow: hidden;
-}
-.bwav--shown .bwav__overlay {
-  display: flex;
+
+  .bwav__overlay {
+    display: flex;
+  }
 }
 
 .bwav__overlay {
@@ -44,26 +44,30 @@
   max-width: var(--bwav-width--wrapper);
   text-align: center;
   width: 100%;
-}
 
-.bwav__wrapper a {
-  color: var(--bwav-color--primary);
-  text-decoration: none;
-}
-.bwav__wrapper a:hover { 
-  filter: brightness(85%);
-  text-decoration: underline;
-}
-.bwav__wrapper p {
-  margin-bottom: 22px;
-  margin-top: 0;
-}
-.bwav__wrapper p:last-child {
-  margin-bottom: 0;
-}
-.bwav__wrapper img {
-  display: block;
-  width: 100%;
+  a {
+    color: var(--bwav-color--primary);
+    text-decoration: none;
+
+    &:hover { 
+      filter: brightness(85%);
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin-bottom: 22px;
+    margin-top: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
 }
 
 .bwav__step {
@@ -82,15 +86,14 @@
   margin: -35px auto 35px;
   overflow: hidden;
   width: var(--bwav-width--avatar);
-}
-.bwav__avatar--scaleup {
-  animation: scaleUp 1000ms 500ms forwards;
-}
-.bwav__avatar--scaledown {
-  animation: scaleUp 1000ms forwards reverse;
-}
-.bwav__avatar--blur .bwav__avatar__image {
-  animation: blur 500ms 1500ms forwards;
+
+  &--scaleup {
+    animation: scaleUp 1000ms 500ms forwards;
+  }
+
+  &--scaledown {
+    animation: scaleUp 1000ms forwards reverse;
+  }
 }
 
 .bwav__avatar__image {
@@ -99,6 +102,10 @@
   height: 0;
   padding-top: 100%;
   width: 100%;
+
+  .bwav__avatar--blur & {
+    animation: blur 500ms 1500ms forwards;
+  }
 }
 
 .bwav__button {
@@ -109,9 +116,10 @@
   color: var(--bwav-color--primary-text);
   cursor: pointer;
   padding: 14px 20px 13px;
-}
-.bwav__button:hover {
-  filter: brightness(85%);
+
+  &:hover {
+    filter: brightness(85%);
+  }
 }
 
 .bwav__content {
@@ -132,9 +140,10 @@
 
 .bwav__title {
   font-size: 1.3em;
-}
-.bwav__title strong {
-  color: var(--bwav-color--primary);
+
+  strong {
+    color: var(--bwav-color--primary);
+  }
 }
 
 .bwav__footer {
@@ -142,16 +151,19 @@
   padding: 25px 30px;
   position: relative;
   width: 100%;
-}
-.bwav__step .bwav__footer::before {
-  background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bwav-color--background));
-  content: '';
-  bottom: 100%;
-  height: 50px;
-  position: absolute;
-  pointer-events: none;
-  left: 0;
-  width: 100%;
+
+  .bwav__step & {
+    &:before {
+      background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bwav-color--background));
+      content: '';
+      bottom: 100%;
+      height: 50px;
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      width: 100%;
+    }
+  }
 }
 
 .bwav__footer__logos {
@@ -163,18 +175,20 @@
 .bwav__footer__logo {
   height: 40px;
   width: 130px;
-}
-.bwav__footer__logo img {
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  width: 100%;
-}
-.bwav__footer__logo:first-child img {
-  object-position: left;
-}
-.bwav__footer__logo:last-child img {
-  object-position: right;
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+  }
+  
+  &:first-child img {
+    object-position: left;
+  }
+  &:last-child img {
+    object-position: right;
+  }
 }
 
 .bwav__agecheck__consent {
