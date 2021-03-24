@@ -188,6 +188,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   function close() {
     if (SETTINGS.debug) { console.log(`${MODULE_NAME} close`); }
     STORE.target.classList.remove(CLASSES.show);
+    STORE.target.classList.remove(CLASSES.blur);
     triggerEvent(`${SETTINGS.eventPrefix}on_close`, { model: STORE.model });
   }
 
@@ -218,6 +219,10 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     `;
 
     STORE.wrapper.innerHTML = template;
+
+    if (SETTINGS.blur) {
+      document.body.classList.add(CLASSES.blur);
+    }
 
     STORE.target.classList.add(CLASSES.show);
   }
@@ -310,13 +315,12 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
    * Add classes to necessary items
    */
   function addClasses() {
-    // if (SETTINGS.blur) {
-    //   if (SETTINGS.debug) { console.log(`${MODULE_NAME} blur content`); }
-    //   document.body.classList.add('bwav--blur');
-    // }
-
     if (SETTINGS.ageCheck) {
       STORE.target.classList.add(CLASSES.show);
+
+      if (SETTINGS.blur) {
+        document.body.classList.add(CLASSES.blur);
+      }
     }
   }
 
