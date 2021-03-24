@@ -171,9 +171,11 @@
 
 .bwav__footer {
   box-sizing: border-box;
-  padding: 25px 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding: 25px 0;
   position: relative;
-  width: 100%;
+  width: calc(100% - 60px);
 
   .bwav__step & {
     &:before {
@@ -186,6 +188,21 @@
       left: 0;
       width: 100%;
     }
+
+    &:after {
+      color: var(--bwav-color--primary);
+      content: '............................................................................................................';
+      font-size: 1.2em;
+      left: 50%;
+      letter-spacing: 10px;
+      line-height: 1;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      transform: translate(-50%, -80%);
+      white-space: nowrap;
+      width: 100%;
+    }
   }
 }
 
@@ -196,21 +213,49 @@
   justify-content: space-between;
 }
 .bwav__footer__logo {
+  display: flex;
   height: 40px;
   width: 130px;
+
+  a {
+    display: inline-flex;
+    filter: unset !important;
+    position: relative;
+
+    @supports(mix-blend-mode: screen) {
+      &:after {
+        background: currentColor;
+        content: '';
+        height: 100%;
+        left: 0;
+        mix-blend-mode: screen;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
 
   img {
     height: 100%;
     object-fit: contain;
     object-position: center;
     width: 100%;
+
+    filter: brightness(0) saturate(100%);
   }
   
-  &:first-child img {
-    object-position: left;
+  &:first-child {
+    justify-content: flex-start;
+    img {
+      object-position: left;
+    }
   }
-  &:last-child img {
-    object-position: right;
+  &:last-child {
+    justify-content: flex-end;
+    img {
+      object-position: right;
+    }
   }
 }
 
