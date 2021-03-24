@@ -35,6 +35,29 @@
 }
 
 .bwav__wrapper {
+  position: relative;
+}
+
+.bwav__close {
+  align-items: center;
+  background: var(--bwav-color--background);
+  border: 1px solid var(--bwav-color--primary);
+  border-radius: 100%;
+  color: var(--bwav-color--primary);
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  height: 2em;
+  justify-content: center;
+  position: absolute;
+  transform: translate(50%, -50%);
+  right: 0;
+  top: 0;
+  width: 2em;
+  z-index: 10;
+}
+
+.bwav {
   background: var(--bwav-color--background);
   border-radius: var(--bwav-border--radius);
   box-sizing: border-box;

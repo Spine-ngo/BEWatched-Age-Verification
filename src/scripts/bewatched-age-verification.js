@@ -62,6 +62,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   const SETTINGS = {
     debug: false,
 
+    close: false,
+
     accentColor: 'green',
     accentTextColor: 'white',
     shadowColor: 'rgba(0,128,0,.25)',
@@ -98,7 +100,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   const SELECTORS = {
     target: 'body',
     overlay: '.bwav__overlay',
-    wrapper: '.bwav__wrapper',
+    wrapper: '.bwav',
     agecheck: '.bwav__agecheck',
   };
 
@@ -263,7 +265,10 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     try {
       const scaffold = `
         <div class="bwav__overlay">
-          <div class="bwav__wrapper"></div>
+          <div class="bwav__wrapper">
+            ${ SETTINGS.close ? '<span class="bwav__close" onclick="BWAV.close()">x</span>' : '' }
+            <div class="bwav"></div>
+          </div>
         </div>
       `;
       
