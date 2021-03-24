@@ -104,6 +104,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     content: COPY,                      // copy object, see above
   };
 
+  // bundled selectors used troughout the script to avoid typos
   const SELECTORS = {
     target: 'body',
     overlay: '.bwav__overlay',
@@ -111,6 +112,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     agecheck: '.bwav__agecheck',
   };
 
+  // bundled css classes used trouhgout the script to avoid typos
   const CLASSES = {
     blur: 'bwav--blur',
     show: 'bwav--shown',
