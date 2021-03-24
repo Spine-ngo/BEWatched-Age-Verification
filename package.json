@@ -10,10 +10,8 @@
     "prestart": "npm install",
     "start": "npm run dev",
     "dev": "node --experimental-json-modules node_modules/gulp/bin/gulp watch --gulpfile ./taskmanager/gulpfile.js",
-    "build": "node --experimental-json-modules node_modules/gulp/bin/gulp build --gulpfile ./taskmanager/gulpfile.js",
-    "precommit-msg": "echo 'Creating a new build before git commit...' && exit 0"
+    "build": "node --experimental-json-modules node_modules/gulp/bin/gulp build --gulpfile ./taskmanager/gulpfile.js"
   },
-  "pre-commit": [ "precommit-msg", "build" ],
   "license": "ISC",
   "eslintConfig": {
     "parserOptions": {
@@ -63,7 +61,6 @@
     "dotenv": "^8.2.0",
     "gulp-gzip": "^1.4.2",
     "gulp-rename": "^2.0.0",
-    "js-cookie": "^2.2.1",
-    "pre-commit": "^1.2.2"
+    "js-cookie": "^2.2.1"
   }
 }
