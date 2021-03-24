@@ -1,11 +1,11 @@
-import PACKAGE from '../../package.json';
+import { version } from '../../package.json';
 
 // eslint-disable-next-line no-unused-vars
 window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   "use strict";
 
   const MODULE_NAME = 'BWAV';
-  const VERSION = `v${PACKAGE.version}`;
+  const VERSION = `v${version}`;
 
   const MODELS = [
     {

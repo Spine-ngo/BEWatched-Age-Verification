@@ -15,7 +15,7 @@ export default {
     filename: `[name].v${PACKAGE.version}.js`
   },
   mode: 'development',
-  devtool: 'source-map',
+  devtool: 'eval-source-map',
   plugins: [new ESLintPlugin()],
   module: {
     rules: [

@@ -7,6 +7,7 @@ import plumber from 'gulp-plumber';
 import flatten from 'gulp-flatten';
 import sourcemaps from 'gulp-sourcemaps';
 import notify from 'gulp-notify';
+import gzip from 'gulp-gzip';
 // import sassLint from 'gulp-sass-lint';
 import rename from 'gulp-rename';
 import CONFIG from '../config.js';
@@ -39,6 +40,8 @@ function build() {
     .pipe(rename(function(path) {
       path.extname = `.v${CONFIG.version}${path.extname}`;
     }))
+    .pipe(gulp.dest(CONFIG.dir.dest.styles))
+    .pipe(gzip())
     .pipe(gulp.dest(CONFIG.dir.dest.styles));
 };
 

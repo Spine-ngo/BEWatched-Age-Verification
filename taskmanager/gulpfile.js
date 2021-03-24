@@ -11,15 +11,15 @@ import STYLES from './tasks/styles.js';
 export const watch = () => {
   
   CLEAN.cleanup();
-  STYLES.build();
-  SCRIPTS.build();
-  GRAPHICS.build();
-  MARKUP.build();
+  STYLES.watch();
+  SCRIPTS.watch();
+  GRAPHICS.watch();
+  MARKUP.watch();
   
   BROWSER.init();
 
   gulp.watch(CONFIG.dir.src.markup, { cwd: CONFIG.dir.cwd }, MARKUP.watch).on('change', function() { BROWSER.reload() });
-  gulp.watch(CONFIG.dir.src.graphics, { cwd: CONFIG.dir.cwd }, GRAPHICS.watch);
+  gulp.watch(CONFIG.dir.src.graphics, { cwd: CONFIG.dir.cwd }, GRAPHICS.watch).on('change', function() { BROWSER.reload() });
   gulp.watch(CONFIG.dir.src.styles, { cwd: CONFIG.dir.cwd }, STYLES.watch);
   gulp.watch(CONFIG.dir.src.scripts.glob, { cwd: CONFIG.dir.cwd }, SCRIPTS.watch);
 };

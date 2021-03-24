@@ -5,15 +5,13 @@ import plumber from 'gulp-plumber';
 import webp from 'gulp-webp';
 import notify from 'gulp-notify';
 import CONFIG from '../config.js';
-import BROWSER from './browser.js';
 
 function watch() {
   return gulp.src(CONFIG.dir.src.graphics, { cwd: CONFIG.dir.cwd })
     .pipe(flatten({ includeParents: -1}))
     .pipe(gulp.dest(CONFIG.dir.dest.graphics))
     .pipe(webp())
-    .pipe(gulp.dest(CONFIG.dir.dest.graphics))
-    .pipe(BROWSER.reload());
+    .pipe(gulp.dest(CONFIG.dir.dest.graphics));
 }
 
 function build() {
