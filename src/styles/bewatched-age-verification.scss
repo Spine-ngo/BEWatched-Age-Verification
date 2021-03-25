@@ -152,7 +152,7 @@
 
     &__image {
       background-repeat: no-repeat;
-      background-size: 195px auto;
+      background-size: 210px auto;
       background-position: center center;
       height: 0;
       padding-top: 100%;
@@ -165,21 +165,8 @@
       // }
 
       @media screen and (min-width: 768px) {
-        background-size: 280px auto;
+        background-size: 294.5px auto;
       }
-    }
-
-    &__image--back {
-      background-color: var(--bwav-color--background);
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
-      height: 100%;
-      filter: blur(3px);
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 100%;
     }
   }
 
@@ -258,6 +245,8 @@
     width: 100%;
   
     .bwav__step & {
+      padding: 5px 10px 20px;
+
       &:before {
         background: linear-gradient(to bottom, rgba(255,255,255,0), var(--bwav-color--background));
         content: '';
@@ -271,7 +260,7 @@
     }
   
     .bwav__actions {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
   
       .bwav__button {
         margin-left: auto;
@@ -348,19 +337,19 @@
         }
       }
     }
+  }
 
-    @media (prefers-reduced-motion) {
-      &__overlay > * {
-        animation-duration: 0 !important;
-      }
+  @media (prefers-reduced-motion) {
+    &__overlay > * {
+      animation-duration: 0 !important;
     }
   }
 
-  
 }
 
 @keyframes scaleUp {
   100% {
+    background-size: cover;
     margin-bottom: 60px;
     margin-top: -70px;
     width: 85%;
