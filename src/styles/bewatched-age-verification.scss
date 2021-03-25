@@ -217,15 +217,15 @@
       overflow-y: scroll;
     }
 
-    &::-webkit-scrollbar {
-      appearance: none;
-      width: 7px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.2);
-      border: 1px solid var(--bwav-color--background);
-      border-radius: 4px;
-    }
+    // &::-webkit-scrollbar {
+    //   appearance: none;
+    //   width: 7px;
+    // }
+    // &::-webkit-scrollbar-thumb {
+    //   background: rgba(0,0,0,0.2);
+    //   border: 1px solid var(--bwav-color--background);
+    //   border-radius: 4px;
+    // }
   }
 
   &__actions {
