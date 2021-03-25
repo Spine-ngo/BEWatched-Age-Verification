@@ -8,7 +8,8 @@ const __dirname = path.dirname(moduleURL.pathname);
 
 export default {
   entry: {
-    'bewatched-age-verification': path.resolve(__dirname, CONFIG.dir.cwd, CONFIG.dir.src.scripts.main)
+    'bewatched-age-verification': path.resolve(__dirname, CONFIG.dir.cwd, CONFIG.dir.src.scripts.main),
+    'bewatched-options': path.resolve(__dirname, CONFIG.dir.cwd, CONFIG.dir.src.scripts.options),
   },
   output: {
     path: path.resolve(__dirname, CONFIG.dir.cwd, CONFIG.dir.dest.scripts),

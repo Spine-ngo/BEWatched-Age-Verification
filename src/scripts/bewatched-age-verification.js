@@ -9,26 +9,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   const VERSION = `v${version}`;  // get version from package.json to load correct css file 
 
   // mock MODELS array, can be overwrited in the global settings object (see index.html file)
-  const MODELS = [
-    {
-      id: 1,
-      avatar: 'images/model-placeholder.png', // model image
-      underaged: false,                       // under 18?
-      gender: 'f',                            // f = female, m = male
-    },
-    {
-      id: 2,
-      avatar: 'images/model-placeholder.png',
-      underaged: true,
-      gender: 'm',
-    },
-    {
-      id: 3,
-      avatar: 'images/model-placeholder.png',
-      underaged: false,
-      gender: 'f',
-    }
-  ];
+  const MODELS = BWAV_SETTINGS.models || [];
 
   // All texts used in this plugin, can be overwritten by using the global settings object (see index.html file)
   const COPY = {
@@ -63,16 +44,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   };
 
   // Logos used in the footer at the last step
-  const LOGOS = [
-    {
-      url: 'https://europa.eu/',
-      image: 'images/logo-eu.png',
-    },
-    {
-      url: 'https://childfocus.be',
-      image: 'images/logo-child-focus.png',
-    }
-  ];
+  const LOGOS = BWAV_SETTINGS.logos || [];
 
   const SETTINGS = {
     debug: false,                       // enable for logging
@@ -87,6 +59,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     ageCheck: true,                     // show an age-check before the survey
     blur: false,                        // blur the main website content when the overlay is shown
+    
+    modelsURL: '',
     models: MODELS,                     // models array, see above
 
     cdnPrefix: '',                      // load your assets from a CDN
@@ -97,6 +71,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
+    logosURL: '',
     logos: LOGOS,                       // array of logos, see above
 
     ...(BWAV_SETTINGS || {}),

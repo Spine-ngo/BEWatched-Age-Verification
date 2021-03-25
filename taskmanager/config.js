@@ -9,8 +9,10 @@ const CONFIG = {
       scripts: {
         glob: 'scripts/**/*.js',
         main: 'scripts/bewatched-age-verification.js',
+        options: 'scripts/bewatched-options.js',
       },
       graphics: '**/*.{png,jpg,gif}',
+      data: 'data/**/*',
       markup: '**/*.html'
     },
     dest: {
@@ -18,6 +20,7 @@ const CONFIG = {
       scripts: '../public/',
       graphics: '../public/',
       markup: '../public/',
+      data: '../public/data',
       clean: '../public/*',
     },
   },

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "avatar": "images/model-placeholder.png",
+    "underaged": false,
+    "gender": "f"
+  },
+  {
+    "id": 2,
+    "avatar": "images/model-placeholder.png",
+    "underaged": true,
+    "gender": "f"
+  },
+  {
+    "id": 3,
+    "avatar": "images/model-placeholder.png",
+    "underaged": false,
+    "gender": "m"
+  },
+  {
+    "id": 4,
+    "avatar": "images/model-placeholder.png",
+    "underaged": true,
+    "gender": "m"
+  }
+]
