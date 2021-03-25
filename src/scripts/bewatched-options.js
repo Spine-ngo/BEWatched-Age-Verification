@@ -32,9 +32,11 @@ const COPY = {
   yes: 'Yes',
   no: 'No',
 
+  genderX: 'this person',
   genderM: 'he',
   genderF: 'she',
 
+  genderXFull: 'this person',
   genderMFull: 'this boy',
   genderFFull: 'this girl',
 
@@ -76,10 +78,8 @@ window.BWAV_SETTINGS = {
   ageCheck: true,                     // show an age-check before the survey
   blur: false,                        // blur the main website content when the overlay is shown
   
-  // todo: via json modelsURL
+  modelsURL: '',                      // default url to models array on CDN
   models: MODELS,                     // models array, see above
-
-  cdnPrefix: '',                      // load your assets from a CDN
 
   cookieAge: 30,                      // amount of days for the cookie lifetime
   cookieName: 'bwav',                 // cookie name
@@ -87,7 +87,7 @@ window.BWAV_SETTINGS = {
 
   eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
-  // todo: via json voor controle
+  logosURL: '',                       // default URL to logos array on CDN
   logos: LOGOS,                       // array of logos, see above
 
   content: COPY,                      // copy object, see above

@@ -23,9 +23,11 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     yes: 'Yes',
     no: 'No',
 
+    genderX: 'this person',
     genderM: 'he',
     genderF: 'she',
 
+    genderXFull: 'this person',
     genderMFull: 'this boy',
     genderFFull: 'this girl',
 
@@ -60,10 +62,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     ageCheck: true,                     // show an age-check before the survey
     blur: false,                        // blur the main website content when the overlay is shown
     
-    modelsURL: '',
+    modelsURL: '',                      // default url to models array on CDN
     models: MODELS,                     // models array, see above
-
-    cdnPrefix: '',                      // load your assets from a CDN
 
     cookieAge: 30,                      // amount of days for the cookie lifetime
     cookieName: 'bwav',                 // cookie name
@@ -71,7 +71,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
-    logosURL: '',
+    logosURL: '',                       // default URL to logos array on CDN
     logos: LOGOS,                       // array of logos, see above
 
     ...(BWAV_SETTINGS || {}),
@@ -110,8 +110,18 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
    * @returns 
    */
   function genderizeSentence(sentence, gender) {
-    const g = gender === 'f' ? SETTINGS.content.genderF : SETTINGS.content.genderM;
-    const gFull = gender === 'f' ? SETTINGS.content.genderFFull : SETTINGS.content.genderMFull;
+    let g = SETTINGS.content.genderX;
+    let gFull = SETTINGS.content.genderXFull;
+
+    if (gender === 'f') {
+      g = SETTINGS.content.genderF;
+      gFull = SETTINGS.content.genderFFull;
+    }
+
+    if (gender === 'm') {
+      g = SETTINGS.content.genderM;
+      gFull = SETTINGS.content.genderMFull;
+    }
 
     return sentence.replace('#G#', g).replace('#GF#', gFull);
   }
