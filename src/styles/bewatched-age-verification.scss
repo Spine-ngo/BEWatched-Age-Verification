@@ -151,6 +151,7 @@
     }
 
     &__image {
+      background-color: var(--bwav-color--background);
       background-repeat: no-repeat;
       background-size: 210px auto;
       background-position: center center;
@@ -350,7 +351,7 @@
 @keyframes scaleUp {
   100% {
     background-size: cover;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
     margin-top: -70px;
     width: 85%;
   }
