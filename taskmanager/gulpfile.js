@@ -11,12 +11,7 @@ import STYLES from './tasks/styles.js';
 
 export const watch = () => {
   
-  CLEAN.cleanup();
-  STYLES.watch();
-  SCRIPTS.watch();
-  GRAPHICS.watch();
-  DATA.watch();
-  MARKUP.watch();
+  gulp.series([ CLEAN.cleanup, STYLES.watch, SCRIPTS.watch, GRAPHICS.watch, DATA.watch, MARKUP.watch ]);
   
   BROWSER.init();
 
