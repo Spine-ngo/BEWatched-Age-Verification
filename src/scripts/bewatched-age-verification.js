@@ -46,7 +46,16 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   };
 
   // Logos used in the footer at the last step
-  const LOGOS = BWAV_SETTINGS.logos || [];
+  const LOGOS = BWAV_SETTINGS.logos || [
+    {
+      url: 'https://europa.eu/',
+      image: 'images/logo-eu.png',
+    },
+    {
+      url: 'https://childfocus.be',
+      image: 'images/logo-child-focus.png',
+    },
+  ];
 
   const SETTINGS = {
     debug: false,                       // enable for logging

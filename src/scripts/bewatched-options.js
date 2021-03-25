@@ -53,16 +53,7 @@ const COPY = {
 };
 
 // Logos used in the footer at the last step
-const LOGOS = [
-  {
-    url: 'https://europa.eu/',
-    image: 'images/logo-eu.png',
-  },
-  {
-    url: 'https://childfocus.be',
-    image: 'images/logo-child-focus.png',
-  },
-];
+const LOGOS = null;
 
 window.BWAV_SETTINGS = {
   debug: false,                       // enable for logging
