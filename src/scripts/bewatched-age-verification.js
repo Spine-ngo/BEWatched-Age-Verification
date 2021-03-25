@@ -96,6 +96,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     overlay: '.bwav__overlay',
     wrapper: '.bwav',
     agecheck: '.bwav__agecheck',
+    contentAnswer: '.bwav__content--answer',
+    exitButton: '.bwav__button--exit',
   };
 
   // bundled css classes used trouhgout the script to avoid typos
@@ -151,6 +153,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     // setup html
     const template = `
+      ${ SETTINGS.close ? '<span class="bwav__close" onclick="BWAV.close()">x</span>' : '' }
       <div class="bwav__step">
         <div class="bwav__avatar bwav__avatar--scaledown${ correct ? ' bwav__avatar--blur' : '' }">
           <div class="bwav__avatar__image" style="background-image: url(${STORE.model.avatar});"></div>
@@ -162,20 +165,19 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
             <p class="bwav__title">${ genderizeSentence(SETTINGS.content.incorrect, STORE.model.gender) }</p>
           ` }
 
-        <div class="bwav__content">
+        <div class="bwav__content bwav__content--answer">
           ${ correct ? `
           <p class="bwav__intro">${ genderizeSentence(SETTINGS.content.correctContent, STORE.model.gender) }</p>
         ` : `
             <p class="bwav__intro">${ genderizeSentence(SETTINGS.content.incorrectContent, STORE.model.gender) }</p>
           ` }
           ${ SETTINGS.content.info }
-
-          <div class="bwav__actions">
-            <button class="bwav__button" onclick={BWAV.close()}><span>${SETTINGS.content.close}</span></button>
-          </div>
         </div>
 
         <div class="bwav__footer">
+          <div class="bwav__actions">
+            <button class="bwav__button bwav__button--exit" onclick={BWAV.close()} disabled><span>${SETTINGS.content.close}</span></button>
+          </div>
           <div class="bwav__footer__logos">
             ${ SETTINGS.logos.map((logo) => (`
             <div class="bwav__footer__logo">
@@ -190,6 +192,17 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     `;
 
     STORE.wrapper.innerHTML = template;
+
+    const contentAnswer = STORE.wrapper.querySelector(SELECTORS.contentAnswer);
+    const exitButton = STORE.wrapper.querySelector(SELECTORS.exitButton);
+
+    contentAnswer.addEventListener('scroll', function(e) {
+      const { target } = e;
+      if (target.scrollTop + target.offsetHeight + 5 >= target.scrollHeight) {
+        exitButton.removeAttribute('disabled');
+      }
+    });
+
   }
 
   function close() {
@@ -285,7 +298,6 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
       const scaffold = `
         <div class="bwav__overlay">
           <div class="bwav__wrapper">
-            ${ SETTINGS.close ? '<span class="bwav__close" onclick="BWAV.close()">x</span>' : '' }
             <div class="bwav"></div>
           </div>
         </div>
