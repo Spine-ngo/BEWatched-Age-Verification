@@ -58,7 +58,7 @@ const LOGOS = null;
 window.BWAV_SETTINGS = {
   debug: false,                       // enable for logging
 
-  close: false,                       // show a close button at the right-top corner of the overlay
+  close: true,                       // show a close button at the right-top corner of the overlay
 
   accentColor: 'green',               // the highlight color used for buttons, links, specific text
   accentTextColor: 'white',           // the text color for buttons
