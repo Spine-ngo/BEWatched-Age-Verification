@@ -150,6 +150,10 @@
     &--scaledown {
       animation: scaleUp 1000ms forwards reverse;
 
+      @media screen and (max-height: 599px) {
+        margin-bottom: 20px;
+      }
+
       .bwav__avatar__image {
         background-size: cover;
       }
@@ -369,7 +373,7 @@
 }
 
 @keyframes scaleUp {
-  100% {
+  to {
     background-size: cover;
     margin-bottom: 70px;
     margin-top: -70px;
