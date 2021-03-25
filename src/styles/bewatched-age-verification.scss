@@ -21,9 +21,14 @@
   color: var(--bwav-color--text);
   display: flex;
   flex-flow: column;
+  margin-top: 50px;
   position: relative;
   text-align: center;
   width: 100%;
+
+  @media screen and (min-height: 600px) {
+    margin-top: 0;
+  }
 
   a {
     color: var(--bwav-color--primary);
@@ -199,12 +204,27 @@
   }
 
   &__content {
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: auto;
     padding: 0 5px 25px;
   
     .bwav__step & {
       box-sizing: border-box;
-      padding: 0 15px 35px;
+      padding: 0 10px 35px;
+    }
+
+    &--answer {
+      overflow-y: scroll;
+    }
+
+    &::-webkit-scrollbar {
+      appearance: none;
+      width: 7px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid var(--bwav-color--background);
+      border-radius: 4px;
     }
   }
 
