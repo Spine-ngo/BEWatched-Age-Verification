@@ -39,7 +39,7 @@
     margin-top: 0;
 
     &:last-child {
-      //margin-bottom: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -132,6 +132,7 @@
     flex-grow: 0;
     margin: -35px auto 40px;
     overflow: hidden;
+    position: relative;
     width: var(--bwav-width--avatar);
   
     &--scaleup {
@@ -143,15 +144,35 @@
     }
 
     &__image {
+      background-repeat: no-repeat;
       background-size: 195px auto;
       background-position: center center;
       height: 0;
       padding-top: 100%;
+      position: relative;
       width: 100%;
+      z-index: 10;
     
       // .bwav__avatar--blur & {
       //   animation: blur 500ms 1500ms forwards;
       // }
+
+      @media screen and (min-width: 768px) {
+        background-size: 245px auto;
+      }
+    }
+
+    &__image--back {
+      background-color: var(--bwav-color--background);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      height: 100%;
+      filter: blur(3px);
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
     }
   }
 

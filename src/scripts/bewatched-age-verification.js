@@ -156,6 +156,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
       ${ SETTINGS.close ? '<span class="bwav__close" onclick="BWAV.close()">x</span>' : '' }
       <div class="bwav__step">
         <div class="bwav__avatar bwav__avatar--scaledown${ correct ? ' bwav__avatar--blur' : '' }">
+          <div class="bwav__avatar__image--back" style="background-image: url(${ STORE.model.avatar });"></div>
           <div class="bwav__avatar__image" style="background-image: url(${STORE.model.avatar});"></div>
         </div>
 
@@ -233,6 +234,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     const template = `
     <div class="bwav__step">
       <div class="bwav__avatar bwav__avatar--scaleup">
+        <div class="bwav__avatar__image--back" style="background-image: url(${ STORE.model.avatar });"></div>
         <div class="bwav__avatar__image" style="background-image: url(${ STORE.model.avatar });"></div>
       </div>
 
