@@ -68,6 +68,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     cookieAge: 30,                      // amount of days for the cookie lifetime
     cookieName: 'bwav',                 // cookie name
     cookieShowMax: 0,                   // the amount of times the survey can be shown, 0 = always
+    
+    cdnPrefix: '',                      // a CDN url prefix for the CSS url
 
     eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
