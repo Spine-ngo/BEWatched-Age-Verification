@@ -257,7 +257,7 @@
     }
   
     .bwav__actions {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
   
       .bwav__button {
         margin-left: auto;
@@ -271,14 +271,14 @@
       flex-flow: row nowrap;
       justify-content: space-between;
       position: relative;
-      padding-top: 25px;
+      padding-top: 12px;
     
       &:after {
         color: var(--bwav-color--primary);
         content: '............................................................................................................';
         font-size: 1.2em;
         left: 50%;
-        letter-spacing: 10px;
+        letter-spacing: 4px;
         line-height: 1;
         overflow: hidden;
         position: absolute;
