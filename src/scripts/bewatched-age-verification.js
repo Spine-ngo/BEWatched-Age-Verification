@@ -83,10 +83,10 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
     logosURL: '',                       // default URL to logos array on CDN
-    logos: LOGOS,                       // array of logos, see above
 
     ...(BWAV_SETTINGS || {}),
-
+    
+    logos: LOGOS,                       // array of logos, see above
     content: COPY,                      // copy object, see above
   };
 
