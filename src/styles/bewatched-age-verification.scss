@@ -121,8 +121,9 @@
       margin-bottom: 20px;
     }
 
+    // oversize agecheck logo
     .bwav__avatar__image {
-      background-size: cover;
+      background-size: 110%;
     }
   }
 
@@ -143,6 +144,10 @@
   
     &--scaledown {
       animation: scaleUp 1000ms forwards reverse;
+
+      .bwav__avatar__image {
+        background-size: cover;
+      }
     }
 
     &__image {
@@ -160,7 +165,7 @@
       // }
 
       @media screen and (min-width: 768px) {
-        background-size: 245px auto;
+        background-size: 280px auto;
       }
     }
 
@@ -199,6 +204,10 @@
       pointer-events: none;
       filter: grayscale(100%);
     }
+
+    @media screen and (min-width: 768px) {
+      min-width: 90px;
+    }
   }
 
   &__content {
@@ -215,7 +224,12 @@
     align-items: center;
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
+
+    .bwav__button { 
+      margin-left: 8px; 
+      margin-right: 8px; 
+    }
   }
 
   .bwav__question {
@@ -239,7 +253,7 @@
 
   &__footer {
     box-sizing: border-box;
-    padding: 10px 10px 25px;
+    padding: 10px 10px 20px;
     position: relative;
     width: 100%;
   
@@ -271,7 +285,7 @@
       flex-flow: row nowrap;
       justify-content: space-between;
       position: relative;
-      padding-top: 12px;
+      padding-top: 20px;
     
       &:after {
         color: var(--bwav-color--primary);
@@ -347,8 +361,9 @@
 
 @keyframes scaleUp {
   100% {
-    margin-top: -50px;
-    width: 80%;
+    margin-bottom: 60px;
+    margin-top: -70px;
+    width: 85%;
   }
 }
 
