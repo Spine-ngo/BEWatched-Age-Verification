@@ -1,6 +1,7 @@
 import '@babel/polyfill';
 import { version } from '../../package.json';
 import Cookies from 'js-cookie';
+import axios from 'axios';
 
 // eslint-disable-next-line no-unused-vars
 window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
@@ -18,12 +19,12 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     accentTextColor: 'white',           // the text color for buttons
     shadowColor: 'rgba(0,128,0,.25)',   // the shadow color, used for example under the logo/avatar
 
-    logo: 'images/logo.png',            // link to a specific logo, now a placeholder
+    logo: '',            // link to a specific logo, now a placeholder
 
     ageCheck: true,                     // show an age-check before the survey
     blur: false,                        // blur the main website content when the overlay is shown
     
-    modelsURL: '',                      // default url to models array on CDN
+    modelsURL: 'data/models.json',      // default url to models array on CDN
     models: [],                         // models array, see above
 
     cookieAge: 30,                      // amount of days for the cookie lifetime
@@ -34,12 +35,12 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
-    logosURL: '',                       // default URL to logos array on CDN
+    logosURL: 'data/logos.json',       // default URL to logos array on CDN
 
-    ...(BWAV_SETTINGS || {}),
-    
     logos: [],                         // array of logos, see above
     content: {},                       // copy object, see above
+
+    ...(BWAV_SETTINGS || {}),
   };
 
   // bundled selectors used troughout the script to avoid typos
@@ -377,16 +378,35 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   
       ...(BWAV_SETTINGS.content || {})
     };
-    SETTINGS.logos = BWAV_SETTINGS.logos || [
-      {
-        url: 'https://europa.eu/',
-        image: 'images/logo-eu.png',
-      },
-      {
-        url: 'https://childfocus.be',
-        image: 'images/logo-child-focus.png',
-      },
-    ];
+    SETTINGS.logos = BWAV_SETTINGS.logos || [];
+
+    if (SETTINGS.modelsURL) {
+      if (SETTINGS.debug) { console.log(`${MODULE_NAME} get models from data file`); }
+
+      try {
+        const response = await axios.get(`${SETTINGS.cdnPrefix}${SETTINGS.modelsURL}`);
+
+        if (SETTINGS.debug) { console.log(`${MODULE_NAME} received models from data file`, response.data); }
+        SETTINGS.models = response.data;
+      } catch (e) {
+        if (SETTINGS.debug) { console.warn('Something went wrong getting the models data file'); }
+        if (SETTINGS.debug) { console.error(e); }
+      }
+    }
+
+    if (SETTINGS.logosURL) {
+      if (SETTINGS.debug) { console.log(`${MODULE_NAME} get logos from data file`); }
+
+      try {
+        const response = await axios.get(`${SETTINGS.cdnPrefix}${SETTINGS.logosURL}`);
+
+        if (SETTINGS.debug) { console.log(`${MODULE_NAME} received logos from data file`, response.data); }
+        SETTINGS.logos = response.data;
+      } catch (e) {
+        if (SETTINGS.debug) { console.warn('Something went wrong getting the logos data file'); }
+        if (SETTINGS.debug) { console.error(e); }
+      }
+    }
 
     return;
   };

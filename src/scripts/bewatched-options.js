@@ -1,25 +1,3 @@
-// mock MODELS array, can be overwrited in the global settings object (see index.html file)
-const MODELS = [
-  {
-    id: 1,
-    avatar: 'images/model-placeholder.png', // model image
-    underaged: false,                       // under 18?
-    gender: 'f',                            // f = female, m = male
-  },
-  {
-    id: 2,
-    avatar: 'images/model-placeholder.png',
-    underaged: true,
-    gender: 'm',
-  },
-  {
-    id: 3,
-    avatar: 'images/model-placeholder.png',
-    underaged: false,
-    gender: 'f',
-  },
-];
-
 // All texts used in this plugin, can be overwritten by using the global settings object (see index.html file)
 const COPY = {
   agecheck: 'This is an <strong>adult-only</strong> website',
@@ -52,9 +30,6 @@ const COPY = {
   close: 'Go to the website',
 };
 
-// Logos used in the footer at the last step
-const LOGOS = null;
-
 window.BWAV_SETTINGS = {
   debug: false,                       // enable for logging
 
@@ -68,18 +43,12 @@ window.BWAV_SETTINGS = {
 
   ageCheck: true,                     // show an age-check before the survey
   blur: false,                        // blur the main website content when the overlay is shown
-  
-  modelsURL: '',                      // default url to models array on CDN
-  models: MODELS,                     // models array, see above
 
   cookieAge: 30,                      // amount of days for the cookie lifetime
   cookieName: 'bwav',                 // cookie name
   cookieShowMax: 0,                   // the amount of times the survey can be shown, 0 = always
 
   eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
-
-  logosURL: '',                       // default URL to logos array on CDN
-  logos: LOGOS,                       // array of logos, see above
 
   content: COPY,                      // copy object, see above
 };

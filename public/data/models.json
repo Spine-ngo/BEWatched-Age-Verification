@@ -7,7 +7,7 @@
   },
   {
     "id": 2,
-    "avatar": "images/model-placeholder.png",
+    "avatar": "images/model-1.jpg",
     "underaged": true,
     "gender": "f"
   },
@@ -22,5 +22,17 @@
     "avatar": "images/model-placeholder.png",
     "underaged": true,
     "gender": "m"
+  },
+  {
+    "id": 5,
+    "avatar": "images/model-placeholder.png",
+    "underaged": false,
+    "gender": "x"
+  },
+  {
+    "id": 6,
+    "avatar": "images/model-placeholder.png",
+    "underaged": true,
+    "gender": "x"
   }
 ]
