@@ -12,7 +12,7 @@
     "dev": "node --experimental-json-modules node_modules/gulp/bin/gulp watch --gulpfile ./taskmanager/gulpfile.js",
     "build": "node --experimental-json-modules node_modules/gulp/bin/gulp build --gulpfile ./taskmanager/gulpfile.js"
   },
-  "license": "ISC",
+  "license": "MIT",
   "eslintConfig": {
     "parserOptions": {
       "ecmaVersion": 2018,
@@ -28,9 +28,9 @@
       "no-undef": 2
     }
   },
+  "browserslist": "> 0.25%, not dead",
   "devDependencies": {
     "@babel/core": "^7.12.3",
-    "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.13",
@@ -56,6 +56,7 @@
     "webpack-stream": "^6.1.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "chalk": "^4.1.0",
     "del": "^6.0.0",
     "dotenv": "^8.2.0",

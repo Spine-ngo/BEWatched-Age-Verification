@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import { version } from '../../package.json';
 import Cookies from 'js-cookie';
 
@@ -7,55 +8,6 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
   const MODULE_NAME = 'BWAV';     // added as a prefix to console logs for easy filtering
   const VERSION = `v${version}`;  // get version from package.json to load correct css file 
-
-  // mock MODELS array, can be overwrited in the global settings object (see index.html file)
-  const MODELS = BWAV_SETTINGS.models || [];
-
-  // All texts used in this plugin, can be overwritten by using the global settings object (see index.html file)
-  const COPY = {
-    agecheck: 'This is an <strong>adult-only</strong> website',
-    consent: 'By continuing to browse this website, you aggree to our <a href="#">cookie policy</a> and <a href="#">terms and conditions</a>.',
-    consentButton: 'I am older than 18',
-    agecheckFooter: '<a href="#">More information</a>',
-
-    questionIntro: 'But more important...',
-    question: 'Is #G# 18 years or older?',
-    yes: 'Yes',
-    no: 'No',
-
-    genderX: 'this person',
-    genderM: 'he',
-    genderF: 'she',
-
-    genderXFull: 'this person',
-    genderMFull: 'this boy',
-    genderFFull: 'this girl',
-
-    correct: 'Correct, #G# is <strong>underaged</strong>',
-    correctContent: 'But you can admit, it\'s not always easy to see if someone is of age. At the moment this picture was taken, #GF# was active as a sex worker.',
-
-    incorrect: 'Unfortunately, #G# is <strong>underaged</strong>',
-    incorrectContent: 'As you can see, it\'s not always easy to see if someone is of age. Because at the moment this picture was taken, #GF# was active as a sex worker.',
-
-    info: `<p>We do our best to avoid working with underaged sex workers, but we can never be 100% succesful. In the future, when in doubt, but still want to meet? Try asking for an ID for example. Only then will you be sure to not do anything illegal.</p>
-    <p>And if it turns out the sex worker is indeed underaged? Report this anonymously to Child Focus, by calling tollfree to <a href="tel:116 000">116 000</a> or by using <a href="https://childfocus.be/en/child-sexual-abuse-material-reporting-form" target="_blank">this online form</a>. And help us in the combat against sexual exploitation of children.</p>`,
-
-    close: 'Go to the website',
-
-    ...(BWAV_SETTINGS.content || {})
-  };
-
-  // Logos used in the footer at the last step
-  const LOGOS = BWAV_SETTINGS.logos || [
-    {
-      url: 'https://europa.eu/',
-      image: 'images/logo-eu.png',
-    },
-    {
-      url: 'https://childfocus.be',
-      image: 'images/logo-child-focus.png',
-    },
-  ];
 
   const SETTINGS = {
     debug: false,                       // enable for logging
@@ -72,7 +24,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     blur: false,                        // blur the main website content when the overlay is shown
     
     modelsURL: '',                      // default url to models array on CDN
-    models: MODELS,                     // models array, see above
+    models: [],                         // models array, see above
 
     cookieAge: 30,                      // amount of days for the cookie lifetime
     cookieName: 'bwav',                 // cookie name
@@ -86,8 +38,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     ...(BWAV_SETTINGS || {}),
     
-    logos: LOGOS,                       // array of logos, see above
-    content: COPY,                      // copy object, see above
+    logos: [],                         // array of logos, see above
+    content: {},                       // copy object, see above
   };
 
   // bundled selectors used troughout the script to avoid typos
@@ -205,6 +157,9 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
   }
 
+  /**
+   * Close the tool
+   */
   function close() {
     if (SETTINGS.debug) { console.log(`${MODULE_NAME} close`); }
     STORE.target.classList.remove(CLASSES.show);
@@ -389,12 +344,61 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     }
   }
 
+  const getData = async () => {
+    SETTINGS.models = BWAV_SETTINGS.models || [];
+    SETTINGS.content = {
+      agecheck: 'BWAV_SETTINGS.content.agecheck',
+      consent: 'BWAV_SETTINGS.content.consent',
+      consentButton: 'BWAV_SETTINGS.content.consentButton',
+      agecheckFooter: 'BWAV_SETTINGS.content.agecheckFooter',
+  
+      questionIntro: 'BWAV_SETTINGS.content.questionIntro',
+      question: 'BWAV_SETTINGS.content.question',
+      yes: 'BWAV_SETTINGS.content.yes',
+      no: 'BWAV_SETTINGS.content.no',
+  
+      genderX: 'BWAV_SETTINGS.content.genderX',
+      genderM: 'BWAV_SETTINGS.content.genderM',
+      genderF: 'BWAV_SETTINGS.content.genderF',
+  
+      genderXFull: 'BWAV_SETTINGS.content.genderXFull',
+      genderMFull: 'BWAV_SETTINGS.content.genderMFull',
+      genderFFull: 'BWAV_SETTINGS.content.genderFFull',
+  
+      correct: 'BWAV_SETTINGS.content.correct',
+      correctContent: 'BWAV_SETTINGS.content.correctContent',
+  
+      incorrect: 'BWAV_SETTINGS.content.incorrect',
+      incorrectContent: 'BWAV_SETTINGS.content.incorrectContent',
+  
+      info: `BWAV_SETTINGS.content.info`,
+  
+      close: 'BWAV_SETTINGS.content.close',
+  
+      ...(BWAV_SETTINGS.content || {})
+    };
+    SETTINGS.logos = BWAV_SETTINGS.logos || [
+      {
+        url: 'https://europa.eu/',
+        image: 'images/logo-eu.png',
+      },
+      {
+        url: 'https://childfocus.be',
+        image: 'images/logo-child-focus.png',
+      },
+    ];
+
+    return;
+  };
+
   /**
    * Initialize plugin, prepare DOM and inject necessary resources
    */
-  function init() {
+  const init = async () => {
     if (SETTINGS.debug) { console.log(`${MODULE_NAME} init`); }
     triggerEvent(`${SETTINGS.eventPrefix}on_init`, SETTINGS);
+
+    await getData();
   
     addStyles();
     setupHTML();
