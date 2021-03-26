@@ -26,7 +26,7 @@ function init() {
 
   console.log(`
 
-  🚀 🚀 initialize browser sync 🚀🚀 with options: ${options}
+  🚀 🚀 initialize browser sync 🚀🚀 with options: ${JSON.stringify(options)}
   
   `);
 
