@@ -102,8 +102,12 @@ Your model object should look something like this
 }
 ```
 
+> Important note: if you want to use your own set of models, make sure to clear the `modelsURL`parameter, because by default, this is being called to get models from the CDN.
+
 ### Logos
 A list of logos used at the bottom of the final screen. These are the people/companies that made the creation of this tool possible. It's not mandatory to keep the original logos here, but it would be highly appreciated to mention them.
+
+> Important note: if you want to use your own set of logos, make sure to clear the `logosURL`parameter, because by default, this is being called to get logos from the CDN.
 
 ## Events
 All valuable interactions with this plugin fire a custom event on the window object. This can be used for reacting to certain events, or for tracking. Here you can find a list of events, and when they fire. Please keep in mind that these events are **prefixed** with the `BWAV_SETTINGS.eventPrefix`.
