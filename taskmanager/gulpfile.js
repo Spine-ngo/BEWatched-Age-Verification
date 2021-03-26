@@ -1,4 +1,6 @@
 import gulp from 'gulp';
+import chalk from 'chalk';
+
 import CONFIG from './config.js';
 import BROWSER from './tasks/browser.js';
 import CLEAN from './tasks/clean.js';
@@ -22,6 +24,24 @@ export const watch = () => {
   gulp.watch(CONFIG.dir.src.scripts.glob, { cwd: CONFIG.dir.cwd }, SCRIPTS.watch);
 };
 
-export const build = gulp.series([CLEAN.cleanup, gulp.parallel([STYLES.build, SCRIPTS.build, GRAPHICS.build]), DATA.build, MARKUP.build]);
+const logVersion = (cb) => {
+  console.log(`
+
+  🚀 🚀 Starting build for version ${chalk.green(`v${CONFIG.version}`)} 🚀 🚀
+
+  `);
+  cb();
+}
+
+const buildDone = (cb) => {
+  console.log(`
+
+  ✅ ✅ Build succesful for version ${chalk.green(`v${CONFIG.version}`)} ✅ ✅
+
+  `);
+  cb();
+};
+
+export const build = gulp.series([logVersion, CLEAN.cleanup, gulp.parallel([STYLES.build, SCRIPTS.build, GRAPHICS.build]), DATA.build, MARKUP.build, buildDone]);
 
 export default watch;

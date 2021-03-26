@@ -24,13 +24,34 @@ function init() {
     ...CONFIG.browser
   };
 
+  console.log(`
+
+  🚀 🚀 initialize browser sync 🚀🚀 with options: ${options}
+  
+  `);
+
   return bs.init(options);
 }
 
 const BROWSER = {
   init,
-  stream: function() { return bs.stream() },
-  reload: function() { return bs.reload() },
+  stream: function() { 
+    console.log(`
+
+      🏎 🏎 stream changes to browser 🏎 🏎
+  
+    `);
+    return bs.stream() 
+  },
+  reload: function() { 
+    console.log(`
+
+      ♻️ ♻️ reload browser ♻️ ♻️
+  
+    `);
+
+    return bs.reload() 
+  },
 };
 
 export default BROWSER;

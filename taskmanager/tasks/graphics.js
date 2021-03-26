@@ -7,6 +7,12 @@ import notify from 'gulp-notify';
 import CONFIG from '../config.js';
 
 function watch() {
+  console.log(`
+  
+  👀 👀 watch graphics 👀 👀 ${CONFIG.dir.src.graphics}
+  
+  `);
+
   return gulp.src(CONFIG.dir.src.graphics, { cwd: CONFIG.dir.cwd })
     .pipe(flatten({ includeParents: -1}))
     .pipe(gulp.dest(CONFIG.dir.dest.graphics))
@@ -15,6 +21,13 @@ function watch() {
 }
 
 function build() {
+  console.log(`
+
+    🛠 🛠 start building graphics 🛠 🛠 
+    from: ${CONFIG.dir.src.graphics} to: ${CONFIG.dir.dest.graphics}
+
+  `);
+
   return gulp.src(CONFIG.dir.src.graphics, { cwd: CONFIG.dir.cwd })
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(imagemin([
