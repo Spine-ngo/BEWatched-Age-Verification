@@ -1,0 +1,46 @@
+{
+  "nl": {
+    "info": "<p>Samen met Child Focus doet #BRAND# er alles aan om minderjarige sekswerkers te weren. Toch kan dit nooit 100% voorkomen worden. Twijfel je aan de opgegeven leeftijd wanneer je afspreekt? En kan de sekswerker niet aantonen dat ze 18 jaar is? Breek het contact dan af en meld dit anoniem aan Child Focus op het gratis nummer <a href='tel:116 000'>116 000</a> of via <a href='https://childfocus.be/nl/meldingsformulier' target='_blank'>het online meldingsformulier</a>. Want op dat moment bent u de enige die uitbuiting kan stoppen.</p>",
+
+    "questionIntro": "Maar nog belangrijker...",
+    "question": "Is #G# 18 jaar of ouder?",
+
+    "yes": "Ja",
+    "no": "Nee",
+
+    "genderM": "hij",
+    "genderF": "zij",
+
+    "genderMFull": "deze jongen",
+    "genderFFull": "dit meisje",
+
+    "correct": "Juist, #G# is <strong>minderjarig</strong>.",
+    "correctContent": "Maar geef toe dat je niet altijd even makkelijk kan inschatten of iemand minderjarig is. Op het moment van deze foto was #GF# actief als minderjarige sekswerker.",
+        
+    "incorrect": "Fout, #G# is <strong>minderjarig</strong>.",
+    "incorrectContent": "Zoals je ziet is het niet altijd even makkelijk in te schatten of iemand meerderjarig is. Want op het moment van deze foto was #GF# actief als minderjarige sekswerker."
+  },
+  "en": {
+    "info": "<p>Together with Child Focus, #BRAND# does everything in its power to avoid working with underaged sex workers. Nevertheless this can never be 100% prevented. Are there doubts about the age of the person you will be meeting? The sex worker can't provide legitimate proof of age? Break off contact and report this anonymously to Child Focus by calling tollfree to <a href='tel:116 000'>116 000</a> or by using <a href='https://childfocus.be/en/child-sexual-abuse-material-reporting-form' target='_blank'>this online form</a>. Because in that moment, you are the only one who can stop that exploitation.</p>",
+
+    "questionIntro": "But more important...",
+    "question": "Is #G# 18 years or older?",
+    "yes": "Yes",
+    "no": "No",
+
+    "genderX": "this person",
+    "genderM": "he",
+    "genderF": "she",
+
+    "genderXFull": "this person",
+    "genderMFull": "this boy",
+    "genderFFull": "this girl",
+
+    "correct": "Correct, #G# is <strong>of legal age</strong>",
+    "correctContent": "But you can admit that it's not always easy to judge someones's age. At the moment this picture was taken, #GF# was indeed of legal age. Unfortunately back in the days #G# was exploited as an underaged sex worker.",
+
+    "incorrect": "Wrong, #G# is <strong>of legal age</strong>",
+    "incorrectContent": "As you can see, it's not always easy to see if someone is of legal age. At the moment this picture was taken, #GF# was of legal age. Unfortunately back in the days #G# was exploited as an underaged sex worker."
+
+  }
+}

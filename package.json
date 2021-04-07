@@ -6,6 +6,9 @@
   "README": "./taskmanager/README.md",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "14"
+  },
   "scripts": {
     "prestart": "npm install",
     "start": "npm run dev",

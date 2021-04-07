@@ -36,19 +36,19 @@ For this version, the following options are available:
 | `accentColor` | (hex string) The color used for highlights, buttons, links | `green`
 | `accentTextColor` | (hex string) The color used for text in highlighted buttons | `white`
 | `shadowColor` | (rgba string) The color used for shadows, for example the shadow underneath the logo / avatar | `rgba(0,128,0,.25)`
-| `logo` | (url string) A relative or absolute path to the logo for the age check | `images/logo.png`
-| `ageCheck` | (true/false) Enable or disable the age check screen (first screen) | `true`
+| `ageCheck` | (true/false) Enable or disable the age check screen (first screen) | `false`
 | `blur` | (true/false) Enable or disable blurring the original site content | `false`
-| `models` | (array) A list of models with own properties (see below for details) | `[{ avatar: '', underaged: false, gender: 'f' }]`
+| `modelsURL` | (url) CDN url to models array | `https://URL/TO/CDN`
+| `models` | (array) A list of models with own properties (see below for details), overwritten by data from modelsURL if present | `[{ avatar: '', underaged: false, gender: 'f' }]`
 | `cookieAge` | (number) The lifetime of the cookie that is set when you close the popup, in days | `30`
 | `cookieName` | (string) The name of the cookie that is set | `30`
 | `cookieShowMax` | (number) The amount of times the survey will open on load. Setting this to `0` will disable the check. | `0`
 | `eventPrefix` | (string) A prefix for the events that are triggered by this tool (see below for details) | `bwav:`
-| `logos` | (array) A list of logos with own properties (see below for details) | `[{ url: '', image: '' }]`
 | `content` | (object) A key/value list of all text used in this tool, to customize or translate as you wish (see below for details) | `{ key: 'value' }`
+| `brand` | (object) A set of options to add branding, containing the brand `name`, `logo` url and the website `url` | `{ name: '', logo: '', url: '' }`
 
 ### Content
-As mentioned before in the options, the content is a key/value list (object) that contains all available words and sentences used in this tool. Here are the default values:
+As mentioned before in the options, the content is a key/value list (object) that contains a set of words and sentences used in this tool. Here are the default values:
 
 ```js
 {
@@ -56,33 +56,9 @@ As mentioned before in the options, the content is a key/value list (object) tha
   consent: 'By continuing to browse this website, you aggree to our <a href="#">cookie policy</a> and <a href="#">terms and conditions</a>.',
   consentButton: 'I am older than 18',
   agecheckFooter: '<a href="#">More information</a>',
-
-  questionIntro: 'But more important...',
-  question: 'Is #G# 18 years or older?',
-  yes: 'Yes',
-  no: 'No',
-
-  genderX: 'this person',
-  genderM: 'he',
-  genderF: 'she',
-
-  genderXFull: 'this person',
-  genderMFull: 'this boy',
-  genderFFull: 'this girl',
-
-  correct: 'Correct, #G# is <strong>underaged</strong>',
-  correctContent: 'But you can admit, it\'s not always easy to see if someone is of age. At the moment this picture was taken, #GF# was active as a sex worker.',
-
-  incorrect: 'Unfortunately, #G# is <strong>underaged</strong>',
-  incorrectContent: 'As you can see, it\'s not always easy to see if someone is of age. Because at the moment this picture was taken, #GF# was active as a sex worker.',
-
-  info: `<p>We do our best to avoid working with underaged sex workers, but we can never be 100% succesful. In the future, when in doubt, but still want to meet? Try asking for an ID for example. Only then will you be sure to not do anything illegal.</p>
-  <p>And if it turns out the sex worker is indeed underaged? Report this anonymously to Child Focus, by calling tollfree to <a href="tel:116 000">116 000</a> or by using <a href="https://childfocus.be/en/child-sexual-abuse-material-reporting-form" target="_blank">this online form</a>. And help us in the combat against sexual exploitation of children.</p>`,
-
   close: 'Go to the website',
 }
 ```
-> Some sentences contain a reference to a gender, these can be indicated using the #G# and #GF# identifiers. `#G#` will be translated to the correct `gender(X/M/F)` sentence (X = default), `#GF#` will we translated to the correct `gender(X/M/F)Full` sentence (X = default). You can specify a gender for each model (see below for details).
 ### Models
 Each model has the following properties:
 | key | description | default value |
@@ -92,7 +68,7 @@ Each model has the following properties:
 | `underaged` | (true/false) A value to indicate if the model in question is underaged or not | `false`
 | `gender` | ('x' / 'f' / 'm') The gender of the model, used for adapting the content to represent the correct gender type | `x`
 
-Your model object should look something like this
+A model object should look something like this
 ```js
 {
     id: 1,                        // can be useful for tracking
@@ -105,9 +81,7 @@ Your model object should look something like this
 > Important note: if you want to use your own set of models, make sure to clear the `modelsURL`parameter, because by default, this is being called to get models from the CDN.
 
 ### Logos
-A list of logos used at the bottom of the final screen. These are the people/companies that made the creation of this tool possible. It's not mandatory to keep the original logos here, but it would be highly appreciated to mention them.
-
-> Important note: if you want to use your own set of logos, make sure to clear the `logosURL`parameter, because by default, this is being called to get logos from the CDN.
+The logos in the footer are a fixed combination of the `brand` values and the Child Focus logo.
 
 ## Events
 All valuable interactions with this plugin fire a custom event on the window object. This can be used for reacting to certain events, or for tracking. Here you can find a list of events, and when they fire. Please keep in mind that these events are **prefixed** with the `BWAV_SETTINGS.eventPrefix`.
@@ -127,3 +101,7 @@ The files in the `src` folder will be optimized and pushed to the `public` folde
 
 # Attributions
 This tool is created by [Wunderman Thompson Antwerp](https://www.wundermanthompson.be) for [Child Focus](https://www.childfocus.be).
+
+# Changelog
+## v0.0.1
+The beta version used in development of the first version of this plugin.

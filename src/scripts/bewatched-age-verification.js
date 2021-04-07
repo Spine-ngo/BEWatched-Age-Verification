@@ -1,3 +1,7 @@
+/*!
+ * 
+ */
+
 import '@babel/polyfill';
 import { version } from '../../package.json';
 import Cookies from 'js-cookie';
@@ -9,17 +13,16 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
   const MODULE_NAME = 'BWAV';     // added as a prefix to console logs for easy filtering
   const VERSION = `v${version}`;  // get version from package.json to load correct css file 
+  const DEFAULT_LANG = 'en';      // set default language
 
   const SETTINGS = {
     debug: false,                       // enable for logging
 
     close: false,                       // show a close button at the right-top corner of the overlay
 
-    accentColor: 'green',               // the highlight color used for buttons, links, specific text
-    accentTextColor: 'white',           // the text color for buttons
-    shadowColor: 'rgba(0,128,0,.25)',   // the shadow color, used for example under the logo/avatar
-
-    logo: '',            // link to a specific logo, now a placeholder
+    accentColor: '#00559f',             // the highlight color used for buttons, links, specific text
+    accentTextColor: '#ffffff',         // the text color for buttons
+    shadowColor: 'rgba(0,85,159,.25)',  // the shadow color, used for example under the logo/avatar
 
     ageCheck: true,                     // show an age-check before the survey
     blur: false,                        // blur the main website content when the overlay is shown
@@ -35,12 +38,18 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     eventPrefix: 'bwav:',               // a prefix for the custom events that are triggered by this plugin
 
-    logosURL: 'data/logos.json',       // default URL to logos array on CDN
-
-    logos: [],                         // array of logos, see above
+    contentURL: 'data/content.json',    // default URL to content data file on CDN
     content: {},                       // copy object, see above
 
-    ...(BWAV_SETTINGS || {}),
+    language: DEFAULT_LANG,            // default language for content
+
+    brand: {                           // the info that will be used for branding of the popup
+      name: 'this website',
+      logo: 'https://via.placeholder.com/150',
+      url: 'https://www.google.com',
+    },
+
+    ...BWAV_SETTINGS,
   };
 
   // bundled selectors used troughout the script to avoid typos
@@ -73,7 +82,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
    * Replace #G# and #GF# with the correct genderized words
    * @param {string} sentence 
    * @param {string} gender 
-   * @returns 
+   * @returns {string}
    */
   function genderizeSentence(sentence, gender) {
     let g = SETTINGS.content.genderX;
@@ -89,7 +98,37 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
       gFull = SETTINGS.content.genderMFull;
     }
 
-    return sentence.replace('#G#', g).replace('#GF#', gFull);
+    return sentence.replace(/#G#/, g).replace(/#GF#/, gFull);
+  }
+
+  /**
+   * Replace #BRAND# with the correct brand information
+   * @param {string} sentence 
+   * @param {object} brand 
+   * @returns {string}
+   */
+  function brandSentence(sentence, brand = { name: SETTINGS.brand.name }) {
+    const name = brand.name;
+
+    return sentence.replace(/#BRAND#/, name);
+  }
+
+  /**
+   * Render logos for the footer
+   * @returns {string}
+   */
+  function renderLogos() {
+    return `
+    <div class="bwav__footer__logos">
+      ${ SETTINGS.logos.map((logo) => (`
+        <div class="bwav__footer__logo">
+          <a href="${ logo.url }">
+            <img src="${ logo.image }" />
+          </a>
+        </div>
+      `)).join('') }
+    </div>
+    `;
   }
 
   /**
@@ -131,15 +170,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
           <div class="bwav__actions">
             <button class="bwav__button bwav__button--exit" onclick={BWAV.close()} disabled><span>${SETTINGS.content.close}</span></button>
           </div>
-          <div class="bwav__footer__logos">
-            ${ SETTINGS.logos.map((logo) => (`
-            <div class="bwav__footer__logo">
-              <a href="${ logo.url }">
-                <img src="${ logo.image }" />
-              </a>
-            </div>
-            `)).join('') }
-          </div>
+          ${ renderLogos() }
         </div>
       </div>
     `;
@@ -201,6 +232,9 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
           <button class="bwav__button" onclick={BWAV.answer(false)}><span>${SETTINGS.content.no}</span></button>
         </div>
       </div>
+      <div class="bwav__footer">
+          ${ renderLogos() }
+        </div>
     </div>
     `;
 
@@ -224,7 +258,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     const template = `
     <div class="bwav__agecheck">
       <div class="bwav__avatar">
-        <div class="bwav__avatar__image" style="background-image: url(${SETTINGS.logo});"></div>
+        <div class="bwav__avatar__image" style="background-image: url(${SETTINGS.brand.logo});"></div>
       </div>
 
       <div class="bwav__content">
@@ -394,16 +428,37 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
       }
     }
 
-    if (SETTINGS.logosURL) {
-      if (SETTINGS.debug) { console.log(`${MODULE_NAME} get logos from data file`); }
+    SETTINGS.logos = [
+      {
+        "url": SETTINGS.brand.url,
+        "image": SETTINGS.brand.logo,
+      },
+      {
+        "url": "https://childfocus.be",
+        "image": "images/logo-child-focus.png"
+      }
+    ];
+
+    if (SETTINGS.contentURL) {
+      if (SETTINGS.debug) { console.log(`${MODULE_NAME} get content from data file`); }
 
       try {
-        const response = await axios.get(`${SETTINGS.cdnPrefix}${SETTINGS.logosURL}`);
+        const response = await axios.get(`${SETTINGS.cdnPrefix}${SETTINGS.contentURL}`);
 
-        if (SETTINGS.debug) { console.log(`${MODULE_NAME} received logos from data file`, response.data); }
-        SETTINGS.logos = response.data;
+        if (SETTINGS.debug) { console.log(`${MODULE_NAME} received content from data file`, response.data); }
+        
+        const content = response.data[SETTINGS.language] || response.data[DEFAULT_LANG];
+        console.log(content);
+
+        content.info = brandSentence(content.info);
+
+        SETTINGS.content = {
+          ...SETTINGS.content,
+          ...content,
+        };
+
       } catch (e) {
-        if (SETTINGS.debug) { console.warn('Something went wrong getting the logos data file'); }
+        if (SETTINGS.debug) { console.warn('Something went wrong getting the content data file'); }
         if (SETTINGS.debug) { console.error(e); }
       }
     }
