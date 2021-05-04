@@ -9,6 +9,14 @@
   <link href="https://s.rstatic.be/rl/css/r.min.css?20210315" rel="stylesheet">
 </head>
 <body>
+  <script>
+    function startFlow() {
+      const wrapper = document.querySelector('.dim');
+      wrapper.remove();
+
+      BWAV.start();
+    }
+  </script>
 
   <h1>This is just demo stuff</h1>
 
@@ -18,12 +26,21 @@
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore maxime quae! Quos vero excepturi debitis neque quaerat natus, est, laborum quas soluta, itaque fugiat corrupti corporis saepe labore. Ipsum corporis ducimus atque expedita, soluta quisquam sapiente aperiam, delectus ullam, odit sed sequi eaque vitae adipisci esse ab. Ipsam tenetur doloribus enim nostrum laborum, rerum debitis, repellendus quibusdam alias suscipit ea! Animi voluptas minus hic aspernatur dignissimos. Tempore culpa temporibus vitae, et harum cum aperiam iure corporis totam nesciunt impedit officia voluptas doloribus provident! Eius fugiat quo possimus nisi! Vel amet iure unde corrupti beatae ut omnis odio minima! Voluptates.</p>
   <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolore maxime quae! Quos vero excepturi debitis neque quaerat natus, est, laborum quas soluta, itaque fugiat corrupti corporis saepe labore. Ipsum corporis ducimus atque expedita, soluta quisquam sapiente aperiam, delectus ullam, odit sed sequi eaque vitae adipisci esse ab. Ipsam tenetur doloribus enim nostrum laborum, rerum debitis, repellendus quibusdam alias suscipit ea! Animi voluptas minus hic aspernatur dignissimos. Tempore culpa temporibus vitae, et harum cum aperiam iure corporis totam nesciunt impedit officia voluptas doloribus provident! Eius fugiat quo possimus nisi! Vel amet iure unde corrupti beatae ut omnis odio minima! Voluptates.</p>
 
+  <div class="dim"> 
+    <div class="agecheck text-center col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">  
+      <img src="https://s.rstatic.be/rl/images/icon-nl-96x96.png" alt="Redlights" class="marginbottom15">
+      <p>Redlights is een <strong>18+</strong> website.</p>
+      <p>Door verder te surfen gaat u akkoord met het gebruik van <a href="https://www.redlights.be/cookies/">cookies</a> en de <a href="https://www.redlights.be/gebruiksvoorwaarden/">gebruiksvoorwaarden</a>.</p>
+      <p class="margintop25"><a href="?adult=1" class="btn btn-primary" onclick="startFlow();return false;">Ik ben 18 jaar of ouder</a><br><a href="https://www.redlights.be/gebruiksvoorwaarden/" class="btn btn-link btn-sm">Meer informatie</a></p> 
+    </div> 
+  </div>
+
   <script>
     // OPTIONAL AGE CHECK GLOBAL SETTINGS OBJECT
     window.BWAV_SETTINGS = {
       close: true,
 
-      ageCheck: true,
+      ageCheck: false,
 
       brand: {
         name: 'Redlights',
