@@ -150,7 +150,7 @@
     &--scaledown {
       animation: scaleUp 1000ms forwards reverse;
 
-      @media screen and (max-height: 599px) {
+      @media screen and (max-height: 850px) {
         margin-bottom: 20px;
       }
 
