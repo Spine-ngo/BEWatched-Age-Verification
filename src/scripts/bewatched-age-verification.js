@@ -84,21 +84,29 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
    * @param {string} gender 
    * @returns {string}
    */
-  function genderizeSentence(sentence, gender) {
+  function genderizeSentence(sentence, gender, underaged) {
     let g = SETTINGS.content.genderX;
-    let gFull = SETTINGS.content.genderXFull;
+    let gFull = underaged ? SETTINGS.content.genderXFullUnder : SETTINGS.content.genderXFull;
 
     if (gender === 'f') {
       g = SETTINGS.content.genderF;
-      gFull = SETTINGS.content.genderFFull;
+      if (underaged) {
+        gFull = SETTINGS.content.genderFFullUnder;
+      } else {
+        gFull = SETTINGS.content.genderFFull;
+      }
     }
 
     if (gender === 'm') {
       g = SETTINGS.content.genderM;
-      gFull = SETTINGS.content.genderMFull;
+      if (underaged) {
+        gFull = SETTINGS.content.genderMFullUnder;
+      } else {
+        gFull = SETTINGS.content.genderMFull;
+      }
     }
 
-    return sentence.replace(/#G#/, g).replace(/#GF#/, gFull);
+    return sentence.replace(/#G#/g, g).replace(/#GF#/g, gFull);
   }
 
   /**
@@ -137,32 +145,44 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
    */
   function answerQuestion(answer) {
     if (SETTINGS.debug) { console.log(`${MODULE_NAME} answer question`, answer); }
-    
-    // validate
-    const correct = STORE.model.underaged !== answer;
+
+    let title = '';
+    let content = '';
+
+    if (STORE.model.underaged && answer) {
+      title = genderizeSentence(SETTINGS.content.incorrectUnder, STORE.model.gender, STORE.model.underaged);
+      content = genderizeSentence(SETTINGS.content.incorrectContentUnder, STORE.model.gender, STORE.model.underaged);
+    }
+    if (STORE.model.underaged && !answer) {
+      title = genderizeSentence(SETTINGS.content.correctUnder, STORE.model.gender, STORE.model.underaged);
+      content = genderizeSentence(SETTINGS.content.correctContentUnder, STORE.model.gender, STORE.model.underaged);
+    }
+    if (!STORE.model.underaged && answer) {
+      title = genderizeSentence(SETTINGS.content.correctOver, STORE.model.gender, STORE.model.underaged);
+      content = genderizeSentence(SETTINGS.content.correctContentOver, STORE.model.gender, STORE.model.underaged);
+    }
+    if (!STORE.model.underaged && !answer) {
+      title = genderizeSentence(SETTINGS.content.incorrectOver, STORE.model.gender, STORE.model.underaged);
+      content = genderizeSentence(SETTINGS.content.incorrectContentOver, STORE.model.gender, STORE.model.underaged);
+    }
+
+    const correct = (STORE.model.underaged && !answer) || (!STORE.model.underaged && answer);
 
     triggerEvent(`${SETTINGS.eventPrefix}on_answer`, { answer, model: STORE.model, correct });
 
     // setup html
     const template = `
-      ${ SETTINGS.close ? '<span class="bwav__close" onclick="BWAV.close()">x</span>' : '' }
+      ${ SETTINGS.close ? '<span class="bwav__close" onclick="BWAV.close()"></span>' : '' }
       <div class="bwav__step">
-        <div class="bwav__avatar bwav__avatar--scaledown${ correct ? ' bwav__avatar--blur' : '' }">
+        <div class="bwav__avatar bwav__avatar--scaledown${ STORE.model.underaged ? ' bwav__avatar--blur' : '' }">
           <div class="bwav__avatar__image" style="background-image: url(${STORE.model.avatar});"></div>
         </div>
 
-        ${ correct ? `
-          <p class="bwav__title">${ genderizeSentence(SETTINGS.content.correct, STORE.model.gender) }</p>
-        ` : `
-            <p class="bwav__title">${ genderizeSentence(SETTINGS.content.incorrect, STORE.model.gender) }</p>
-          ` }
+        <p class="bwav__title">${ title }</p>
 
         <div class="bwav__content bwav__content--answer">
-          ${ correct ? `
-          <p class="bwav__intro">${ genderizeSentence(SETTINGS.content.correctContent, STORE.model.gender) }</p>
-        ` : `
-            <p class="bwav__intro">${ genderizeSentence(SETTINGS.content.incorrectContent, STORE.model.gender) }</p>
-          ` }
+          <p class="bwav__intro">${ content }</p>
+        
           ${ SETTINGS.content.info }
         </div>
 
@@ -225,7 +245,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
       <div class="bwav__content">
         <p>${SETTINGS.content.questionIntro}</p>
-        <p class="bwav__question">${ genderizeSentence(SETTINGS.content.question, STORE.model.gender) }</p>
+        <p class="bwav__question">${ genderizeSentence(SETTINGS.content.question, STORE.model.gender, STORE.model.underaged) }</p>
 
         <div class="bwav__actions">
           <button class="bwav__button" onclick={BWAV.answer(true)}><span>${SETTINGS.content.yes}</span></button>
@@ -379,6 +399,9 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
     }
   }
 
+  /**
+   * Get all data from hosted json files
+   */
   const getData = async () => {
     SETTINGS.models = BWAV_SETTINGS.models || [];
     SETTINGS.content = {
@@ -462,8 +485,6 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
         if (SETTINGS.debug) { console.error(e); }
       }
     }
-
-    return;
   };
 
   /**

@@ -14,6 +14,19 @@ function watch() {
   `);
 
   return gulp.src(CONFIG.dir.src.graphics, { cwd: CONFIG.dir.cwd })
+    .pipe(imagemin([
+      imagemin.gifsicle({ interlaced: true }),
+      imagemin.mozjpeg({ quality: 75, progressive: true }),
+      imagemin.optipng({ optimizationLevel: 5 }),
+      imagemin.svgo({
+        plugins: [
+          { removeViewBox: true },
+          { cleanupIDs: false }
+        ]
+      }),
+    ], {
+      verbose: true
+    }))
     .pipe(flatten({ includeParents: -1}))
     .pipe(gulp.dest(CONFIG.dir.dest.graphics))
     .pipe(webp())

@@ -92,18 +92,18 @@
 
   &__close {
     align-items: center;
-    background: var(--bwav-color--primary);
+    background: var(--bwav-color--primary) url('images/close.svg') no-repeat center center / 10px auto;
     border: 2px solid var(--bwav-color--background);
     border-radius: 100%;
     color: var(--bwav-color--primary-text);
     cursor: pointer;
     display: flex;
     flex-flow: column;
-    font-size: 1.5em;
+    // font-size: 1em;
     height: 1.5em;
     justify-content: center;
     position: absolute;
-    transform: translate(50%, -50%);
+    transform: translate(30%, -30%);
     right: 0;
     top: 0;
     width: 1.5em;

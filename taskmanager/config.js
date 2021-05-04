@@ -11,7 +11,7 @@ const CONFIG = {
         main: 'scripts/bewatched-age-verification.js',
         options: 'scripts/bewatched-options.js',
       },
-      graphics: '**/*.{png,jpg,gif}',
+      graphics: '**/*.{png,jpg,gif,svg}',
       data: 'data/**/*',
       markup: '**/*.html'
     },
