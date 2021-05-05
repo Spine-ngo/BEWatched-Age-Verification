@@ -471,7 +471,6 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
         if (SETTINGS.debug) { console.log(`${MODULE_NAME} received content from data file`, response.data); }
         
         const content = response.data[SETTINGS.language] || response.data[DEFAULT_LANG];
-        console.log(content);
 
         content.info = brandSentence(content.info);
 
