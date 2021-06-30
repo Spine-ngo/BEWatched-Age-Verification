@@ -1,6 +1,6 @@
 {
   "nl": {
-    "info": "<p>Samen met Child Focus doet #BRAND# er alles aan om minderjarige sekswerkers te weren. Toch kunnen we dit nooit 100% voorkomen. En daarom hebben we jouw hulp nodig. Want alleen samen kunnen we seksuele uitbuiting van minderjarigen tegengaan en hen de nodige hulp bieden.</p><p>Ben je niet zeker of de opgegeven leeftijd correct is? Of kan de sekswerker niet aantonen dat ze 18 jaar is? Breek het contact dan af en meld dit anoniem aan Child Focus op het gratis nummer <a href='tel:116 000'>116 000</a> of via het online <a href='https://childfocus.be/nl/meldingsformulier' target='_blank'>meldingsformulier</a>.</p><p>Meer info vind je <a href='#'>hier</a>.</p>",
+    "info": "<p>Samen met Child Focus doet #BRAND# er alles aan om minderjarige sekswerkers te weren. Toch kunnen we dit nooit 100% voorkomen. En daarom hebben we jouw hulp nodig. Want alleen samen kunnen we seksuele uitbuiting van minderjarigen tegengaan en hen de nodige hulp bieden.</p><p>Ben je niet zeker of de opgegeven leeftijd correct is? Of kan de sekswerker niet aantonen dat hij of zij 18 jaar is? Breek het contact dan af en meld dit anoniem aan Child Focus op het gratis nummer <a href='tel:116 000'>116 000</a> of via het online <a href='https://childfocus.be/nl/melding-prostitutie' target='_blank'>meldingsformulier</a>.</p><p>Meer info vind je <a href='https://childfocus.be/nl/melding-prostitutie' target='_blank'>hier</a>.</p>",
 
     "questionIntro": "Maar nog belangrijker...",
     "question": "Is #G# 18 jaar of ouder?",
@@ -20,23 +20,76 @@
     "genderMFullUnder": "deze minderjarige jongen",
     "genderFFullUnder": "dit minderjarig meisje",
 
-    "correctUnder": "<strong>Juist</strong>, #G# is inderdaad <strong>minderjarig</strong>.",
+    "underagedX": "minderjarig",
+    "underagedM": "minderjarig",
+    "underagedF": "minderjarig",
+
+    "agedX": "meerderjarig",
+    "agedM": "meerderjarig",
+    "agedF": "meerderjarig",
+
+    "correctUnder": "<strong>Juist</strong>, #G# is inderdaad <strong>#AGEU#</strong>.",
     "correctContentUnder": "Toch is het soms moeilijk om de leeftijd van een sekswerker in te schatten. Op het moment van deze foto werd #GF# seksueel uitgebuit.",
         
-    "incorrectUnder": "<strong>Fout</strong>, #G# is <strong>minderjarig</strong>.",
+    "incorrectUnder": "<strong>Fout</strong>, #G# is <strong>#AGEU#</strong>.",
     "incorrectContentUnder": "Zoals je ziet, is het soms moeilijk om de leeftijd van een sekswerker in te schatten. Op het moment van deze foto werd #GF# seksueel uitgebuit.",
 
-    "correctOver": "<strong>Juist</strong>, #G# is inderdaad <strong>meerderjarig</strong>.",
+    "correctOver": "<strong>Juist</strong>, #G# is inderdaad <strong>#AGE#</strong>.",
     "correctContentOver": "Toch is het soms moeilijk om de leeftijd van een sekswerker in te schatten. Op het moment van deze foto was #GF# inderdaad meerderjarig. Helaas werd #G# seksueel uitgebuit toen #G# minderjarig was.",
         
-    "incorrectOver": "<strong>Fout</strong>, #G# is wel <strong>meerderjarig</strong>.",
-    "incorrectContentOver": "Zoals je ziet, is het soms moeilijk om de leeftijd van een sekswerker in te schatten. Op het moment van deze foto was #GF# meerderjarig. Helaas werd #G# seksueel uitgebuit toen #G# minderjarig was."
+    "incorrectOver": "<strong>Fout</strong>, #G# is wel <strong>#AGE#</strong>.",
+    "incorrectContentOver": "Zoals je ziet, is het soms moeilijk om de leeftijd van een sekswerker in te schatten. Op het moment van deze foto was #GF# meerderjarig. Helaas werd #G# seksueel uitgebuit toen #G# minderjarig was.",
+
+    "close": "Ok, begrepen"
+  },
+  "fr": {
+    "info": "Avec Child Focus, #BRAND# fait tout pour éviter de voir apparaître des annonces de travailleurs ou travailleuses du sexe mineurs sur son site. Nous ne pourrons toutefois jamais empêcher ceci à 100 %. C’est pourquoi nous avons besoin de votre aide. Ce n'est qu'ensemble que nous pouvons prévenir l'exploitation sexuelle des mineurs et leur offrir l'aide nécessaire.</p><p>Vous doutez de l’exactitude de l’âge communiqué ? Ou la personne ne peut pas vous prouver qu’elle a 18 ans ? Rompez le contact et faites un signalement anonyme à Child Focus au numéro gratuit <a href='tel:116 000'>116 000</a> ou via le <a href='https://childfocus.be/fr/signalement-prostitution' target='_blank'>formulaire de signalement</a> en ligne. Vous trouverez de plus amples informations <a href='https://childfocus.be/fr/signalement-prostitution' target='_blank'>ici</a>. Merci pour votre soutien.",
+
+    "questionIntro": "Mais, encore plus important...",
+    "question": "A-t-elle 18 ans ou plus ?",
+
+    "yes": "Oui",
+    "no": "Non",
+
+    "genderx": "ce person",
+    "genderM": "il",
+    "genderF": "elle",
+
+    "genderXFull": "cette personne",
+    "genderMFull": "ce garçon",
+    "genderFFull": "cette fille",
+
+    "genderXFullUnder": "un jeun person mineur",
+    "genderMFullUnder": "un jeun garçon mineur",
+    "genderFFullUnder": "une jeune fille mineure",
+
+    "underagedX": "mineur",
+    "underagedM": "mineur",
+    "underagedF": "mineure",
+
+    "agedX": "majeur",
+    "agedM": "majeur",
+    "agedF": "majeure",
+
+    "correctUnder": "<strong>Vrai</strong>, #G# est effectivement <strong>#AGEU#</strong>.",
+    "correctContentUnder": "Il est parfois difficile d’estimer l’âge d’une travailleuse du sexe. Cette photo illustre l’exploitation sexuelle d'#GF#.",
+        
+    "incorrectUnder": "<strong>Faux</strong>, #G# est <strong>#AGEU#</strong>.",
+    "incorrectContentUnder": "Comme vous pouvez le constater, il est parfois difficile d’estimer l’âge d’une travailleuse du sexe. Cette photo illustre l’exploitation sexuelle d'#GF#.",
+
+    "correctOver": "<strong>Vrai</strong>, #G# est effectivement <strong>#AGE#</strong>.",
+    "correctContentOver": "Il est parfois difficile d’estimer l’âge d’une travailleuse du sexe. #GF# était effectivement majeure au moment où la photo a été prise. Mais #G# était malheureusement victime d’exploitation sexuelle lorsqu'#G# était #AGEU#. ",
+        
+    "incorrectOver": "<strong>Faux</strong>, #G# est <strong>#AGE#</strong>.",
+    "incorrectContentOver": "Comme vous pouvez le constater, il est parfois difficile d’estimer l’âge d’une travailleuse du sexe. #GF# était majeure au moment où la photo a été prise. #G# était malheureusement victime d’exploitation sexuelle lorsqu'#G# était #AGEU#.",
+
+    "close": "D'accord, compris"
   },
   "en": {
-    "info": "<p>Together with Child Focus, #BRAND# does everything in its power to avoid working with underaged sex workers. Nevertheless this can never be 100% prevented.</p><p>Are there doubts about the age of the person you will be meeting? The sex worker can't provide legitimate proof of age? Break off contact and report this anonymously to Child Focus by calling tollfree to <a href='tel:116 000'>116 000</a> or by using <a href='https://childfocus.be/en/child-sexual-abuse-material-reporting-form' target='_blank'>this online form</a>. Because in that moment, you are the only one who can stop that exploitation.</p>",
+    "info": "<p>#BRAND# works with Child Focus to make every effort to stop underage sex workers. However, we can never prevent this 100%. That is why we need your help. We need to work together to prevent the sexual exploitation of minors and offer them the help they need.</p><p>If the sex worker is unable to prove that he or she is 18 or older or if you are not sure that the provided age is correct, break off all contact and report this anonymously to Child Focus by calling freephone <a href='tel:116 000'>116 000</a> or by completing the <a href='https://childfocus.be/nl/melding-prostitutie' target='_blank'>online report</a> form. More information is available <a href='https://childfocus.be/nl/melding-prostitutie' target='_blank'>here</a>.</p>",
 
     "questionIntro": "But more important...",
-    "question": "Is #G# 18 years or older?",
+    "question": "Is #G# 18 or older?",
     "yes": "Yes",
     "no": "No",
 
@@ -48,21 +101,30 @@
     "genderMFull": "this boy",
     "genderFFull": "this girl",
 
-    "genderXFullUnder": "this underaged person",
-    "genderMFullUnder": "this underaged boy",
-    "genderFFullUnder": "this underaged girl",
+    "genderXFullUnder": "this underage person",
+    "genderMFullUnder": "this underage boy",
+    "genderFFullUnder": "this underage girl",
 
-    "correctUnder": "<strong>Correct</strong>, #G# is indeed <strong>underaged</strong>.",
-    "correctContentUnder": "Nevertheless it's sometimes hard to judge the age of a sexworker. At the time this picture was taken, #GF# was being exploited sexually.",
+    "underagedX": "underage",
+    "underagedM": "underage",
+    "underagedF": "underage",
+
+    "agedX": "over 18",
+    "agedM": "over 18",
+    "agedF": "over 18",
+
+    "correctUnder": "<strong>Correct</strong>, #G# is <strong>#AGEU#</strong>.",
+    "correctContentUnder": "However, sometimes it can be really difficult to estimate a sex worker’s actual age. This #GF# was being sexually exploited when this photo was taken.",
         
-    "incorrectUnder": "<strong>Wrong</strong>, #G# is <strong>underaged</strong>.",
-    "incorrectContentUnder": "As you can see, it's sometimes hard to judge the age of a sexworker. At the time this picture was taken, #GF# was being exploited sexually.",
+    "incorrectUnder": "<strong>Incorrect</strong>, #G# is <strong>#AGEU#</strong>.",
+    "incorrectContentUnder": "As you can see, sometimes it can be really difficult to estimate a sex worker’s age. This #GF# was being sexually exploited when this photo was taken.",
 
-    "correctOver": "<strong>Correct</strong>, #G# is indeed <strong>of legal age</strong>.",
-    "correctContentOver": "Nevertheless it's sometimes hard to judge the age of a sexworker. At the time this picture was taken, #G# was indeed of legal age. Unfortunately #G# was being exploited sexually when #G# was underaged.",
+    "correctOver": "<strong>Correct</strong>, #G# is <strong>#AGE#</strong>.",
+    "correctContentOver": "However, sometimes it can be really difficult to estimate a sex worker’s actual age. #GF# was #AGE# when this photo was taken, but unfortunately #G# had been sexually exploited when #G# was underage.",
         
-    "incorrectOver": "<strong>Wrong</strong>, #G# is <strong>of legal age</strong>.",
-    "incorrectContentOver": "As you can see, it's sometimes hard to judge the age of a sexworker. At the time this picture was taken, #G# was indeed of legal age. Unfortunately #G# was being exploited sexually when #G# was underaged."
+    "incorrectOver": "<strong>Incorrect</strong>, #G# is <strong>#AGE#</strong>.",
+    "incorrectContentOver": "As you can see, sometimes it can be really difficult to estimate a sex worker’s age. #GF# was #AGE# when this photo was taken, but unfortunately #G# had been sexually exploited when #G# was underage.",
 
+    "close": "Ok, understood"
   }
 }

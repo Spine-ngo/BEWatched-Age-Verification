@@ -87,9 +87,14 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
   function genderizeSentence(sentence, gender, underaged) {
     let g = SETTINGS.content.genderX;
     let gFull = underaged ? SETTINGS.content.genderXFullUnder : SETTINGS.content.genderXFull;
+    let minor = SETTINGS.content.underagedX;
+    let major = SETTINGS.content.agedX;
 
     if (gender === 'f') {
       g = SETTINGS.content.genderF;
+      minor = SETTINGS.content.underagedF;
+      major = SETTINGS.content.agedF;
+
       if (underaged) {
         gFull = SETTINGS.content.genderFFullUnder;
       } else {
@@ -99,6 +104,9 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
 
     if (gender === 'm') {
       g = SETTINGS.content.genderM;
+      minor = SETTINGS.content.underagedM;
+      major = SETTINGS.content.agedM;
+
       if (underaged) {
         gFull = SETTINGS.content.genderMFullUnder;
       } else {
@@ -106,7 +114,7 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
       }
     }
 
-    return sentence.replace(/#G#/g, g).replace(/#GF#/g, gFull);
+    return sentence.replace(/#G#/g, g).replace(/#GF#/g, gFull).replace(/#AGEU#/g, minor).replace(/#AGE#/g, major);
   }
 
   /**
