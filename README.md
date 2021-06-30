@@ -6,8 +6,8 @@ A completely customizable age verification tool with an added survey to create a
 Implementing the basic plugin is as easy as including 2 script tags in your current website. We provide a hosted version of this script here:
 
 ```html
-<script src="https://link.to.cdn/bewatched-options.v.0.0.1.js"></script>
-<script src="https://link.to.cdn/bewatched-age-verification.v.0.0.1.js"></script>
+<script src="https://link.to.cdn/bewatched-options.v.1.0.0.js"></script>
+<script src="https://link.to.cdn/bewatched-age-verification.v.1.0.0.js"></script>
 ```
 
 To avoid issues when updates are being published to this tool, a versioning system is included in the url. This makes it easy for webmasters to test updates, or to remain on a fixed update.
@@ -48,17 +48,7 @@ For this version, the following options are available:
 | `brand` | (object) A set of options to add branding, containing the brand `name`, `logo` url and the website `url` | `{ name: '', logo: '', url: '' }`
 
 ### Content
-As mentioned before in the options, the content is a key/value list (object) that contains a set of words and sentences used in this tool. Here are the default values:
-
-```js
-{
-  agecheck: 'This is an <strong>adult-only</strong> website',
-  consent: 'By continuing to browse this website, you aggree to our <a href="#">cookie policy</a> and <a href="#">terms and conditions</a>.',
-  consentButton: 'I am older than 18',
-  agecheckFooter: '<a href="#">More information</a>',
-  close: 'Go to the website',
-}
-```
+As mentioned before in the options, the content is a key/value list (object) that contains a set of words and sentences used in this tool. See the `data/content.json`for a specific language to get a list of keys and values.
 ### Models
 Each model has the following properties:
 | key | description | default value |
