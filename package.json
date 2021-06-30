@@ -1,7 +1,7 @@
 {
   "name": "bewatched_age_verification",
   "author": "Bram Verdyck",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Optimize resources for the Bewatched Age Verification plugin",
   "README": "./taskmanager/README.md",
   "private": true,
