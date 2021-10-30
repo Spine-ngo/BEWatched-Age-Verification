@@ -164,7 +164,7 @@
       background-color: var(--bwav-color--background);
       background-repeat: no-repeat;
       background-size: 210px auto;
-      background-position: center center;
+      background-position: top center;
       height: 0;
       padding-top: 100%;
       position: relative;
@@ -176,7 +176,7 @@
       // }
 
       @media screen and (min-width: 768px) {
-        background-size: 294.5px auto;
+        background-size: 315px auto;
       }
     }
 
