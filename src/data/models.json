@@ -47,7 +47,7 @@
   },{
     "id": 10,
     "avatar": "images/model-10.jpg",
-    "underaged": true,
+    "underaged": false,
     "gender": "f"
   },{
     "id": 11,
