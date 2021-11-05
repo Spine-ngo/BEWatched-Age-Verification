@@ -86,7 +86,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
    */
   function genderizeSentence(sentence, gender, underaged) {
     let g = SETTINGS.content.genderX;
-    let gFull = underaged ? SETTINGS.content.genderXFullUnder : SETTINGS.content.genderXFull;
+    //let gFull = underaged ? SETTINGS.content.genderXFullUnder : SETTINGS.content.genderXFull;
+    let gFull = SETTINGS.content.genderXFull;
     let minor = SETTINGS.content.underagedX;
     let major = SETTINGS.content.agedX;
 
@@ -96,7 +97,8 @@ window.BWAV = (function(window, BWAV_SETTINGS, undefined) {
       major = SETTINGS.content.agedF;
 
       if (underaged) {
-        gFull = SETTINGS.content.genderFFullUnder;
+        //gFull = SETTINGS.content.genderFFullUnder;
+        gFull = SETTINGS.content.genderFFull;
       } else {
         gFull = SETTINGS.content.genderFFull;
       }

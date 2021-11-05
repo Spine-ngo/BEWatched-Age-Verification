@@ -8,8 +8,8 @@ const CONFIG = {
       styles: '**/*.scss',
       scripts: {
         glob: 'scripts/**/*.js',
-        main: 'scripts/bewatched-age-verification.js',
-        options: 'scripts/bewatched-options.js',
+        main: 'C:/Git/childfocus/BEWatched-Age-Verification/src/scripts/bewatched-age-verification.js',
+        options: 'C:/Git/childfocus/BEWatched-Age-Verification/src/scripts/bewatched-options.js',
       },
       graphics: '**/*.{png,jpg,gif,svg}',
       data: 'data/**/*',
