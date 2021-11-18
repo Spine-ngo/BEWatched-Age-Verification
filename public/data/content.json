@@ -43,7 +43,7 @@
     "close": "Ok, begrepen"
   },
   "fr": {
-    "info": "<p>En collaboration avec Child Focus, #BRAND# met tout en œuvre pour interdire l'accès aux travailleurs du sexe mineurs. Nous ne pouvons malheureusement pas l'empêcher totalement. C'est pourquoi nous avons besoin de votre aide. Car ce n'est qu'ensemble que nous pouvons combattre l'exploitation sexuelle des mineurs et leur apporter l'assistance nécessaire. Vous n'êtes pas sûr(e) que l'âge indiqué soit correct ? Ou le travailleur du sexe ne peut pas démontrer qu'il ou elle a au moins 18 ans ? Rompez alors le contact et faites un signalement anonyme à Child Focus au numéro gratuit <a href='tel:116 000'>116 000</a> ou via le <a href='https://childfocus.be/fr/signalement-prostitution' target='_blank'>formulaire de signalement</a> en ligne.</p><p>Retrouvez plus d'infos <a href='https://www.quartier-rouge.be/blog/fighting-against-the-exploitation-of-minors.html' target='_blank'>ici.</a><br/><br/></p>",
+    "info": "<p>En collaboration avec Child Focus, #BRAND# met tout en œuvre pour interdire l'accès aux travailleurs du sexe mineurs. Nous ne pouvons malheureusement pas l'empêcher totalement. C'est pourquoi nous avons besoin de votre aide. Car ce n'est qu'ensemble que nous pouvons combattre l'exploitation sexuelle des mineurs et leur apporter l'assistance nécessaire. Vous n'êtes pas sûr(e) que l'âge indiqué soit correct ? Ou le travailleur du sexe ne peut pas démontrer qu'il ou elle a au moins 18 ans ? Rompez alors le contact et faites un signalement anonyme à Child Focus au numéro gratuit <a href='tel:116 000'>116 000</a> ou via le <a href='https://childfocus.be/fr/signalement-prostitution' target='_blank'>formulaire de signalement</a> en ligne.</p><p>Retrouvez plus d'infos <a href='https://www.quartier-rouge.be/blog/lutte-contre-lexploitation-des-mineurs.html' target='_blank'>ici.</a><br/><br/></p>",
     "questionIntro": "Mais, encore plus important...",
     "question": "A-t-elle 18 ans ou plus ?",
 
@@ -77,10 +77,10 @@
     "incorrectContentUnder": "Comme vous le voyez, il est parfois compliqué d'estimer l'âge de quelqu'un. Au moment de la photo, #GF# était encore #AGEU#.",
 
     "correctOver": "<strong>Exact</strong>, #G# est en effet <strong>#AGE#</strong>.",
-    "correctContentOver": "Mais il est souvent compliqué d'estimer l'âge de quelqu'un. Au moment de la photo, #GF# était effectivement déjà #AGEU#. ",
+    "correctContentOver": "Mais il est souvent compliqué d'estimer l'âge de quelqu'un. Au moment de la photo, #GF# était effectivement déjà #AGE#. ",
         
     "incorrectOver": "<strong>Faux</strong>, #G# est bel et bien <strong>#AGE#</strong>.",
-    "incorrectContentOver": "Comme vous le voyez, il est parfois compliqué d'estimer l'âge de quelqu'un. Au moment de la photo, #GF# était déjà #AGEU#.",
+    "incorrectContentOver": "Comme vous le voyez, il est parfois compliqué d'estimer l'âge de quelqu'un. Au moment de la photo, #GF# était déjà #AGE#.",
 
     "close": "D'accord, compris"
   },
