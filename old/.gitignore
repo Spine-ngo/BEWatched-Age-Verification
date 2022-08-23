@@ -1,0 +1,6 @@
+# node & npm
+node_modules
+
+# file dump
+_assets
+.idea/
