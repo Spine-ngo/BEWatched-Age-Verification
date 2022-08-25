@@ -1,27 +1,22 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV == 'production';
+const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
   target: 'web',
-  entry: {
-    index: './src/age-verification.ts',
-  },
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'age-verification.js',
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
     library: {
       name: 'AgeVerification',
       type: 'umd',
-      export: 'default',
-      umdNamedDefine: true,
     },
-    // globalObject: 'this',
-  },
-  watchOptions: {
-    aggregateTimeout: 600,
-    ignored: /node_modules/,
   },
   plugins: [
     new CleanWebpackPlugin({
@@ -32,7 +27,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.ts(x?)$/,
+        test: /\.(ts|tsx)$/i,
         exclude: [/node_modules/, /test/],
         use: [
           {
@@ -47,24 +42,31 @@ const config = {
         ],
       },
       {
-        test: /\.s?css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          {
-            loader: 'sass-loader',
-            options: { implementation: require('sass') },
-          },
-        ],
+        test: /\.s[ac]ss$/i,
+        use: [stylesHandler, 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+      {
+        test: /\.css$/i,
+        use: [stylesHandler, 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        type: 'asset',
       },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
   },
 };
 
-module.exports = (_env, _argv) => {
+module.exports = () => {
+  if (isProduction) {
+    config.mode = 'production';
+
+    config.plugins.push(new MiniCssExtractPlugin());
+  } else {
+    config.mode = 'development';
+  }
   return config;
 };
