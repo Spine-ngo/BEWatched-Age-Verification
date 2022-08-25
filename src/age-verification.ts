@@ -1,4 +1,4 @@
-export class AgeVerification {
+class AgeVerification {
   constructor(autoStart = false) {
     if (autoStart) {
       this.start();
@@ -13,3 +13,5 @@ export class AgeVerification {
     console.log('Age verification closed');
   }
 }
+
+export default AgeVerification;

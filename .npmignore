@@ -1,5 +1,5 @@
 # source code
-src
+src/
 index.html
 
 # compiler
@@ -13,10 +13,10 @@ cypress.json
 *.code-workspace
 
 # tests
-test
+test/
 jest.config.js
 setupJest.ts
-coverage
+coverage/
 
 #  lint
 .eslintrc.js
@@ -27,3 +27,7 @@ coverage
 
 # git
 .git
+
+node_modules/
+example/
+old/

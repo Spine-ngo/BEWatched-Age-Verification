@@ -11,10 +11,13 @@ const config = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'age-verification.js',
-    library: 'AgeVerification',
-    libraryTarget: 'umd',
-    globalObject: 'this',
-    umdNamedDefine: true,
+    library: {
+      name: 'AgeVerification',
+      type: 'umd',
+      export: 'default',
+      umdNamedDefine: true,
+    },
+    // globalObject: 'this',
   },
   watchOptions: {
     aggregateTimeout: 600,
