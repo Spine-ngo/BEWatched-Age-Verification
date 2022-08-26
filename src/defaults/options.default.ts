@@ -1,6 +1,6 @@
-import { Options } from "../types/options.type";
-import { modelsDefault } from "./models.default";
-import { translationsDefault } from "./translations.default";
+import { Options } from '../types/options.type';
+import { modelsDefault } from './models.default';
+import { translationsDefault } from './translations.default';
 
 export const optionsDefault: Options = {
   autoStart: true,
@@ -18,5 +18,5 @@ export const optionsDefault: Options = {
   language: 'en',
   translations: translationsDefault,
   brands: [],
-  showDefaultBrand: true
-}
+  showDefaultBrand: true,
+};

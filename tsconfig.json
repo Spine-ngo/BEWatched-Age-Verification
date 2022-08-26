@@ -3,24 +3,32 @@
     "module": "es6",
     "target": "es5",
     "rootDir": "src",
+    "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "allowJs": true,
-    "declaration": true,
-    "sourceMap": false,
-    "outDir": "dist",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitAny": true,
     "skipLibCheck": true,
-    "typeRoots": ["@types", "./node_modules/@types"],
+    "strict": true,
+    "allowJs": true,
+    "checkJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": false,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "noUnusedLocals": true,
+    "allowUnreachableCode": false
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "dist",
     "old",
     "test/**/*"
-  ],
+  ]
 }

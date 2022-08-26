@@ -1,5 +1,5 @@
-import { optionsDefault } from "./defaults/options.default";
-import { Options } from "./types/options.type";
+import { optionsDefault } from './defaults/options.default';
+import { Options } from './types/options.type';
 
 export class AgeVerification {
   private options: Options;
@@ -11,11 +11,11 @@ export class AgeVerification {
     }
   }
 
-  start() {
+  public start(): void {
     console.log('Age verification started');
   }
 
-  close() {
+  public close(): void {
     console.log('Age verification closed');
   }
 }

@@ -1,6 +1,6 @@
-import { Brand } from "./brand.type";
-import { Model } from "./model.type";
-import { Translations } from "./translations.type";
+import { Brand } from './brand.type';
+import { Model } from './model.type';
+import { Translations } from './translations.type';
 
 export class Options {
   public autoStart!: boolean;

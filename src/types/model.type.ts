@@ -1,4 +1,4 @@
-import { Gender } from "./gender.type";
+import { Gender } from './gender.type';
 
 export class Model {
   public id?: string | number;
