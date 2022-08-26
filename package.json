@@ -4,10 +4,8 @@
   "description": "",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "module": "./src/index.js",
   "files": [
-    "dist",
-    "src/index.js"
+    "dist"
   ],
   "scripts": {
     "build:dev": "webpack --mode=development --watch --progress",
