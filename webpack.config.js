@@ -9,10 +9,10 @@ const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader
 
 const config = {
   target: 'web',
-  entry: './src/index.js',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
+    filename: 'bewatched-age-verification.js',
     library: {
       name: 'AgeVerification',
       type: 'umd',
@@ -27,7 +27,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/i,
+        test: /\.(ts|tsx)$/,
         exclude: [/node_modules/, /test/],
         use: [
           {
