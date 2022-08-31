@@ -14,7 +14,7 @@ export const optionsDefault: Options = {
   cookieAge: 30,
   cookieName: 'age-verification',
   showMax: 5,
-  eventPrefix: 'av',
+  eventPrefix: 'bewatched',
   language: 'en',
   translations: translationsDefault,
   brands: [],

@@ -24,6 +24,7 @@ const config = {
       cleanOnceBeforeBuildPatterns: [path.resolve(__dirname, './dist')],
     }),
   ],
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {

@@ -1,6 +1,12 @@
+// Main class
 export * from './age-verification';
+
+// Types
 export * from './types/brand.type';
 export * from './types/gender.type';
 export * from './types/model.type';
 export * from './types/options.type';
-export * from './types/translations.type';
+
+// Components
+export * from './components/test.component';
+export * from './components/testage-abcdefghijklmnopqrstuvwxyz.component';
