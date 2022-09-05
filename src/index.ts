@@ -9,4 +9,4 @@ export * from './types/options.type';
 
 // Components
 export * from './components/test.component';
-export * from './components/testage-abcdefghijklmnopqrstuvwxyz.component';
+export * from './components/age-verification.component';

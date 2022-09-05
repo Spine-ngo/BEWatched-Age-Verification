@@ -4,11 +4,11 @@ export class AgeVerificationComponent extends HTMLElement {
 
     this.attachShadow({ mode: 'open' });
 
-    const testSpan = document.createElement('span');
-    testSpan.textContent = 'Hello World';
+    const ageVerificationSpan = document.createElement('span');
+    ageVerificationSpan.textContent = 'Age Verification';
 
     if (this.shadowRoot) {
-      this.shadowRoot.appendChild(testSpan);
+      this.shadowRoot.appendChild(ageVerificationSpan);
     }
   }
 }
