@@ -16,7 +16,7 @@ updates:
     schedule:
       interval: "weekly"
     commit-message:
-      prefix: "dependabot actions"
+      prefix: "dependabot ac"
     labels:
       - "dependencies"
     reviewers:
