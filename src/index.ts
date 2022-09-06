@@ -8,5 +8,4 @@ export * from './types/model.type';
 export * from './types/options.type';
 
 // Components
-export * from './components/test.component';
 export * from './components/age-verification.component';
