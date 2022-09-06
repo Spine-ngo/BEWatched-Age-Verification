@@ -12,7 +12,7 @@ export const optionsDefault: Options = {
   blur: true,
   models: modelsDefault,
   cookieAge: 30,
-  cookieName: 'age-verification',
+  cookieName: 'bewatched-age-verification',
   showMax: 5,
   eventPrefix: 'bewatched',
   language: 'en',
