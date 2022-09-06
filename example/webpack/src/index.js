@@ -1,3 +1,3 @@
-import AgeVerification from 'bewatched-age-verification';
+import { AgeVerification } from 'bewatched-age-verification';
 
-const ageVerification = new AgeVerification(true);
+const ageVerification = new AgeVerification({ autoStart: true });

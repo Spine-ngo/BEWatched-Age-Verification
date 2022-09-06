@@ -1,24 +1,32 @@
 {
   "compilerOptions": {
-    "target": "es6",
     "module": "es6",
+    "target": "es6",
     "rootDir": "src",
+    "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
     "allowJs": true,
+    "checkJs": true,
     "declaration": true,
     "sourceMap": false,
-    "outDir": "dist",
-    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "noImplicitAny": true,
-    "skipLibCheck": true
+    "removeComments": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "noUnusedLocals": true,
+    "allowUnreachableCode": false
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
   "exclude": [
     "dist",
     "old",
     "test/**/*"
-  ],
+  ]
 }

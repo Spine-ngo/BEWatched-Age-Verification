@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age verification example with a script tag</title>
-    <script src="/dist/age-verification.js"></script>
+    <script src="/dist/bewatched-age-verification.js"></script>
   </head>
   <body>
-    <h1>Age verification example with a script tag</h1>
+    <h1>Age verification example with a script tag!</h1>
+    <age-verification></age-verification>
 
     <script>
-      const ageVerification = new AgeVerification(true);
+      const ageVerification = new AgeVerification.AgeVerification({
+        autoStart: true,
+      });
     </script>
   </body>
 </html>

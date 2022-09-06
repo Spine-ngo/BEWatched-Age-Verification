@@ -1,5 +1,4 @@
 node_modules/
-dist/
 build/
+dist/
 old/
-webpack.config.js
