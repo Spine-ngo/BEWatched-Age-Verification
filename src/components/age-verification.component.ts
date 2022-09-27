@@ -11,6 +11,10 @@ export class AgeVerificationComponent extends HTMLElement {
       this.shadowRoot.appendChild(ageVerificationSpan);
     }
   }
+
+  // public whoa(): void {
+  //   console.log('whoa whoa');
+  // }
 }
 
 customElements.define('bw-age-verification', AgeVerificationComponent);
