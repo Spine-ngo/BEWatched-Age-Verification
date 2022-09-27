@@ -13,4 +13,4 @@ export class AgeVerificationComponent extends HTMLElement {
   }
 }
 
-customElements.define('age-verification', AgeVerificationComponent);
+customElements.define('bw-age-verification', AgeVerificationComponent);
