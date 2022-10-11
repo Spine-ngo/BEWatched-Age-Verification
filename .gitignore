@@ -113,3 +113,4 @@ package-lock.json
 /.parcel-cache/
 /dist/
 /node_modules/
+/.idea/
