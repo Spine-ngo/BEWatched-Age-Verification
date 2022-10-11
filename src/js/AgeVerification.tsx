@@ -53,11 +53,16 @@ const AgeVerification = {
             ]
         }, options);
 
+        if(!options.branding?.name) throw new Error("Company name is required");
+        else if(!options.branding?.logo) throw new Error("Company logo is required");
+        else if(!options.branding?.links?.cookies) throw new Error("Link to company cookie policy is required");
+        else if(!options.branding?.links?.termsOfService) throw new Error("Link to company terms of service is required");
+
         // return immediately if the user is on cookie or TOS page
         if((() => {
             const
-              cookieUrl = new URL((<a href={options.links.cookies}/>).href),
-              tosUrl = new URL((<a href={options.links.termsOfService}/>).href);
+              cookieUrl = new URL((<a href={options.branding.links.cookies}/>).href),
+              tosUrl = new URL((<a href={options.branding.links.termsOfService}/>).href);
 
             if(cookieUrl.origin === window.location.origin && cookieUrl.pathname === window.location.pathname) return true
             else if(tosUrl.origin === window.location.origin && tosUrl.pathname === window.location.pathname) return true
@@ -114,7 +119,7 @@ const AgeVerification = {
                         modal.append(...[
                             langSelector,
                             <img src={options.branding.logo} alt="Logo" class="av-logo"/>,
-                            ...asHTML(format(lang[0].content, [options.branding.name, options.minimumAge, options.links.cookies, options.links.termsOfService])),
+                            ...asHTML(format(lang[0].content, [options.branding.name, options.minimumAge, options.branding.links.cookies, options.branding.links.termsOfService])),
                             <div class="va-controls">
                                 <button class="va-secondary" onclick={() => {
                                     document.body.innerHTML = "";
@@ -122,7 +127,7 @@ const AgeVerification = {
                                 }} dangerouslySetInnerHTML={{__html: format(lang[0].exit, [])}}/>
                                 <button onclick={() => resolve()} dangerouslySetInnerHTML={{__html: format(lang[0].i_am_of_age, [options.minimumAge])}}/>
                             </div>,
-                            <a class="av-tos" href={options.links.termsOfService}>{lang[0].more_information}</a>
+                            <a class="av-tos" href={options.branding.links.termsOfService}>{lang[0].more_information}</a>
                         ])
                     }
 
