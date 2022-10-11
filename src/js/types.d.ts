@@ -2,6 +2,7 @@ interface VerificationOptions {
     minimumAge?: number,
     disableScrolling?: boolean
     backgroundBlur?: boolean
+    models?: string[]
     branding: {
         name: string,
         logo: string
@@ -19,8 +20,4 @@ interface VerificationOptions {
     cookie_ttl?: number
 }
 
-interface VerificationResult {
-    meetsAgeRequirement: boolean
-}
-
-export { VerificationOptions, VerificationResult }
+export { VerificationOptions }

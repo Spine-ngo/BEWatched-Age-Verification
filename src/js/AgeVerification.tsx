@@ -30,7 +30,27 @@ const AgeVerification = {
             minimumAge: 18,
             cookie_ttl: 2592000,
             disableScrolling: true,
-            backgroundBlur: true
+            backgroundBlur: true,
+            models: [
+                "https://i.imgur.com/kERQDXH.jpg",
+                "https://i.imgur.com/8aLOs5g.jpg",
+                "https://i.imgur.com/atUVnRj.jpg",
+                "https://i.imgur.com/hBn9ona.jpg",
+                "https://i.imgur.com/XDszZnM.jpg",
+                "https://i.imgur.com/lHojdWj.jpg",
+                "https://i.imgur.com/eTQTZtz.jpg",
+                "https://i.imgur.com/C6Xx8rH.jpg",
+                "https://i.imgur.com/j2odobq.jpg",
+                "https://i.imgur.com/5xsHsyo.jpg",
+                "https://i.imgur.com/omyy7Ct.jpg",
+                "https://i.imgur.com/FYFCgJr.jpg",
+                "https://i.imgur.com/Bbww6Ud.jpg",
+                "https://i.imgur.com/RJ8FNDb.jpg",
+                "https://i.imgur.com/gKhQO5E.jpg",
+                "https://i.imgur.com/Vz7yaEy.jpg",
+                "https://i.imgur.com/1JsqDGw.jpg",
+                "https://i.imgur.com/S29mzqv.jpg",
+            ]
         }, options);
 
         // return immediately if the user is on cookie or TOS page
@@ -112,19 +132,15 @@ const AgeVerification = {
                 return new Promise((resolve) => {
                     modal.innerHTML = "";
 
-                    // TODO grab models from file
-                    const isAdult = false;
-
-                    const YesButton = <button>{lang[1].yes}</button>;
-                    const NoButton = <button>{lang[1].no}</button>;
-
-                    YesButton.onclick = () => resolve(isAdult);
-                    NoButton.onclick = () => resolve(!isAdult);
+                    const model = options.models[Math.floor(Math.random() * options.models.length)];
 
                     modal.append(...[
-                        <img class="av-model" src="https://www.redlights.be/static/vendor/BEWatched/public/images/model-3.jpg" alt="Model"/>,
+                        <img class="av-model" src={model} alt="Model"/>,
                         ...asHTML(format(lang[1].content, [options.minimumAge])),
-                        <div class="va-controls">{YesButton}{NoButton}</div>,
+                        <div class="va-controls">
+                            <button onClick={() => resolve(false)}>{lang[1].yes}</button>
+                            <button onClick={() => resolve(true)}>{lang[1].no}</button>
+                        </div>,
                         <div class="va-footer">
                             <a href="/" title={options.branding.name}><img src={options.branding.logo} alt={options.branding.name}/></a>
                             <a href={langs.organisation.website} target="_blank" title={langs.organisation.name}><img src={langs.organisation.logo} alt={`${langs.organisation.name} Logo`} style={{filter: "invert(1) grayscale(1)"}}/></a>
@@ -136,7 +152,6 @@ const AgeVerification = {
                         modal.style.width = "min-content";
 
                         const langSrc = answer ? lang[2].right : lang[2].wrong;
-
 
                         let okButton : HTMLButtonElement;
                         modal.append(
