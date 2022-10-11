@@ -49,15 +49,15 @@ const AgeVerification = {
         if(Cookies.get("verifiedAge") === "1" && !DEV_ENV) return
 
         // first language in array as default
-        let lang = Object.values(langs)[0];
+        let lang = Object.values(langs.languages)[0];
 
         // use website's primary language
-        if(langs[options.primary_language]) lang = langs[options.primary_language];
+        if(langs.languages[options.primary_language]) lang = langs.languages[options.primary_language];
 
         // use computers language if available
         // @ts-ignore
         const userLang = ((navigator.language) ? navigator.language : navigator.userLanguage).split("-")[0].toUpperCase();
-        if(langs[userLang]) lang = langs[userLang];
+        if(langs.languages[userLang]) lang = langs.languages[userLang];
 
 
         return new Promise((topLevelResolve) => {
@@ -80,9 +80,9 @@ const AgeVerification = {
                         if(Object.keys(langs).length < 2) return "";
 
                         return <p>
-                            {Object.keys(langs).map((key) => {
+                            {Object.keys(langs.languages).map((key) => {
                                 return <a href="javascript:void(0)" onClick={() => {
-                                    lang = langs[key];
+                                    lang = langs.languages[key];
                                     build();
                                 }}>{key}</a>
                             }).flatMap((x) => [<span> | </span>, x]).slice(1)}
@@ -126,8 +126,8 @@ const AgeVerification = {
                         ...asHTML(format(lang[1].content, [options.minimumAge])),
                         <div class="va-controls">{YesButton}{NoButton}</div>,
                         <div class="va-footer">
-                            <a href="/"><img src={options.branding.logo} alt={options.branding.name}/></a>
-                            <a href="https://spine.ngo"><img src={spineLogo} alt="Logo" style={{filter: "invert(1) grayscale(1)"}}/></a>
+                            <a href="/" title={options.branding.name}><img src={options.branding.logo} alt={options.branding.name}/></a>
+                            <a href={langs.organisation.website} target="_blank" title={langs.organisation.name}><img src={langs.organisation.logo} alt={`${langs.organisation.name} Logo`} style={{filter: "invert(1) grayscale(1)"}}/></a>
                         </div>
                     ])
                 }).then((answer) => {
