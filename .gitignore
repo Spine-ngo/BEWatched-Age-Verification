@@ -108,3 +108,8 @@ dist
 *.css.map
 
 package-lock.json
+
+/.github/
+/.parcel-cache/
+/dist/
+/node_modules/

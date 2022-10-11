@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "compile-css": "postcss ",
     "build": "parcel build src/*.html",
     "start": "parcel serve src/*.html --open",
     "watch": "parcel watch src/*.html"
