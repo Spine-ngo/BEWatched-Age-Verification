@@ -1,0 +1,54 @@
+{
+  "organisation": {
+    "name": "Spine",
+    "website": "https://spine.ngo",
+    "logo": "https://i.imgur.com/C9Yf25p.png",
+    "email": "meldpunt@spine.ngo"
+  },
+  "translations": {
+    "NL": {
+      "acknowledgement": "{{branding.name}} is een **{{minimumAge}}+** website.\nDoor verder te surfen gaat u akkoord met het gebruik van [cookies]({{branding.links.cookies}}) en de [gebruiksvoorwaarden]({{branding.links.termsOfService}}).",
+      "more_information": "Meer Informatie",
+      "i_am_of_age": "Ik ben {{minimumAge}} jaar of ouder",
+      "exit": "Verlaten",
+      "awareness": {
+        "question": "Maar nog belangerijker...\n**Is zij {{minimumAge}} jaar of ouder?**",
+        "answers": {
+          "correct": {
+            "title": "**Juist**, zij is inderdaad **minderjarig**.",
+            "description": "**Maar het is vaak moeilijk om iemands leeftijd in te schatten. Op het moment van de foto was dit meisje inderdaad al meerderjarig.**\n\nSamen met {{organisation.name}} doet {{branding.name}} er alles aan om minderjarige sekswerkers te weren. Toch kunnen we dit nooit 100% voorkomen. En daarom hebben we jouw hulp nodig. Want alleen samen kunnen we seksuele uitbuiting van minderjarigen tegengaan en hen de nodige hulp bieden.\n\nBen je niet zeker of de opgegeven leeftijd correct is? Of kan de sekswerker niet aantonen dat hij of zij 18 jaar is? Breek het contact dan af en meld dit anoniem aan {{organisation.name}} via [{{organisation.email}}](mailto:{{organisation.email}}).\n\nMeer info vind je [hier]({{organisation.website}})."
+          },
+          "incorrect": {
+            "title": "**Fout**, zij is **minderjarig**.",
+            "description": "**Zoals je ziet, is het soms moeilijk om iemands leeftijd in te schatten. Op het moment van de foto was dit meisje nog minderjarig.**\n\nSamen met {{organisation.name}} doet {{branding.name}} er alles aan om minderjarige sekswerkers te weren. Toch kunnen we dit nooit 100% voorkomen. En daarom hebben we jouw hulp nodig. Want alleen samen kunnen we seksuele uitbuiting van minderjarigen tegengaan en hen de nodige hulp bieden.\n\nBen je niet zeker of de opgegeven leeftijd correct is? Of kan de sekswerker niet aantonen dat hij of zij 18 jaar is? Breek het contact dan af en meld dit anoniem aan {{organisation.name}} via [{{organisation.email}}](mailto:{{organisation.email}}).\n\nMeer info vind je [hier]({{organisation.website}})."
+          }
+        }
+      },
+      "yes": "Ja",
+      "no": "Nee",
+      "comprehension": "Ok, Begrepen"
+    },
+    "EN": {
+      "acknowledgement": "{{branding.name}} is a **{{minimumAge}}+** website.\nBy continuing you agree with the use of [cookies]({{branding.links.cookies}}) and our [terms of service]({{branding.links.termsOfService}}).",
+      "more_information": "More Information",
+      "i_am_of_age": "I am {{minimumAge}} or older",
+      "exit": "Exit",
+      "awareness": {
+        "question": "But more importantly...\n**Is she {{minimumAge}} or older?**",
+        "answers": {
+          "correct": {
+            "title": "**Correct**, she's indeed **a minor**.",
+            "description": "**But it is often difficult to estimate someone's age. Indeed, at the time of the photo, this girl was already of age.**\n\nTogether with {{organisation.name}}, {{branding.name}} does everything possible to keep underage sex workers out. Still, we can never prevent this 100%. And that's why we need your help. Because only together can we stop the sexual exploitation of minors and offer them the help they need.\n\nNot sure if the age given is correct? Or can't the sex worker prove that he or she is 18? Then break off contact and report this anonymously to {{organisation.name}} at [{{organisation.email}}](mailto:{{organisation.email}}).\n\nYou can find more info [here]({{organisation.website}})."
+          },
+          "incorrect": {
+            "title": "**Incorrect**, she's **a minor**.",
+            "description": "**As you can see, sometimes it is difficult to estimate someone's age. At the time of the photo, this girl was still underage.**\n\nTogether with {{organisation.name}}, {{branding.name}} does everything possible to keep underage sex workers out. Yet we can never prevent this 100%. And that's why we need your help. Because only together can we stop the sexual exploitation of minors and offer them the help they need.\n\nNot sure if the age given is correct? Or can't the sex worker prove that he or she is 18? Then break off contact and report this anonymously to {{organisation.name}} at [{{organisation.email}}](mailto:{{organisation.email}}).\n\nYou can find more info [here]({{organisation.website}})."
+          }
+        }
+      },
+      "yes": "Yes",
+      "no": "No",
+      "comprehension": "I Understand"
+    }
+  }
+}
