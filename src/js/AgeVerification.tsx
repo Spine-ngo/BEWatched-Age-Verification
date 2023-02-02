@@ -5,7 +5,6 @@ import Cookies from "./Cookies";
 import HTML from "./HTML";
 import {parseContext, isValidURL, getAbsoluteURL} from "./utilities";
 
-// @ts-ignore
 import language_file from "../lang/nl.json";
 
 language_file.organisation.name = HTML.escape(language_file.organisation.name);
@@ -102,7 +101,6 @@ const AgeVerification = {
           </div>
         );
 
-        console.log(options.exit)
         if (options.exit === true || typeof options.exit === "string" || typeof options.exit === "function") {
           controls.prepend(
             <button class="av-secondary" onClick={() => {
