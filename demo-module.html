@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Test Website</title>
+    <title>Module Demo Website</title>
     <style>
         div.header {
             position: fixed;
@@ -91,7 +91,7 @@
         </div>
     </div>
     <script type="module">
-        import AgeVerification from "./dist/browser.js";
+        import AgeVerification from "./dist/module.js";
 
         AgeVerification.prompt({
             minimumAge: 18,
@@ -111,7 +111,7 @@
             cookie_ttl: 2592000,
             country: "NL", // no functionality yet
             primary_language: "NL",
-            exit: false
+            exit: "https://google.com/"
         });
     </script>
 </body>
