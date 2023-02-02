@@ -3,11 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "source": "src/js/AgeVerification.tsx",
-  "main": "dist/main.js",
   "module": "dist/module.js",
   "browser": "dist/browser.js",
-  "types": "dist/types.d.ts",
-  "type": "module",
   "scripts": {
     "build": "parcel build",
     "watch": "parcel watch"
@@ -47,11 +44,19 @@
     "> 0.5%, last 2 versions, not dead"
   ],
   "targets": {
-    "main": {
-      "context": "browser"
+    "module": {
+      "context": "browser",
+      "includeNodeModules": true,
+      "outputFormat": "esmodule",
+      "isLibrary": true,
+      "optimize": true
     },
     "browser": {
-      "includeNodeModules": true
+      "context": "browser",
+      "includeNodeModules": true,
+      "outputFormat": "commonjs",
+      "isLibrary": true,
+      "optimize": true
     }
   }
 }
