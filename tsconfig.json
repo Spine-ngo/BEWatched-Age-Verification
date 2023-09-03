@@ -1,32 +1,16 @@
 {
   "compilerOptions": {
-    "module": "es6",
-    "target": "es6",
-    "rootDir": "src",
-    "outDir": "dist",
+    "module": "ESnext",
+    "target": "ESnext",
+    "sourceMap": true,
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "DocumentFragment",
+    "jsx": "react",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "allowJs": true,
-    "checkJs": true,
-    "declaration": true,
-    "sourceMap": false,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "removeComments": true,
-    "noImplicitThis": true,
-    "useUnknownInCatchVariables": true,
-    "noUnusedLocals": true,
-    "allowUnreachableCode": false
+    "allowSyntheticDefaultImports": true
   },
-  "include": [
-    "src/**/*"
-  ],
   "exclude": [
-    "dist",
-    "old",
-    "test/**/*"
+    "node_modules"
   ]
 }
